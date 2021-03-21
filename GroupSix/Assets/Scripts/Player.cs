@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float walkSpeed= 1f;
+    [SerializeField] float jumpSpeed = 1f;
+    [SerializeField] float fallMultiplier = 2.5f;
+    bool jumped = false;
     [SerializeField] Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,24 @@ public class Player : MonoBehaviour
     void Update()
     {
         Walk();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jumped = true;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (jumped)
+        {
+            rb.velocity= new Vector2(rb.velocity.x, jumpSpeed);
+
+            jumped = false;
+        }
+        if ( rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime; 
+        }
     }
 
     private void Walk()
