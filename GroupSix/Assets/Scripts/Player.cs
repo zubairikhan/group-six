@@ -46,10 +46,11 @@ public class Player : MonoBehaviour
 
     private void Walk()
     {
-        //var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * walkSpeed;
-        //var newXPos = transform.position.x + deltaX;
-        //transform.position = new Vector2(newXPos, transform.position.y);
-
+        /*var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * walkSpeed;
+        var newXPos = transform.position.x + deltaX;
+        transform.position = new Vector2(newXPos, transform.position.y);
+        */
+        
         float horizontalVelocity = Input.GetAxis("Horizontal") * walkSpeed;
         rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
     }
