@@ -30,8 +30,7 @@ public class Player : MonoBehaviour
     {
         if (jumped)
         {
-            rb.velocity= new Vector2(rb.velocity.x, jumpSpeed);
-            jumped = false;
+            Jump();
         }
         if ( rb.velocity.y < 0)
         {
@@ -39,16 +38,32 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Walk()
+    private void Jump()
     {
-        var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * walkSpeed;
-        var newXPos = transform.position.x + deltaX;
-        transform.position = new Vector2(newXPos, transform.position.y);
-        //float horizontalVelocity = Input.GetAxis("Horizontal") * walkSpeed;
-        //rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
+        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        jumped = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Walk()
+    {
+        //var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * walkSpeed;
+        //var newXPos = transform.position.x + deltaX;
+        //transform.position = new Vector2(newXPos, transform.position.y);
+
+        float horizontalVelocity = Input.GetAxis("Horizontal") * walkSpeed;
+        rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
+    }
+
+    public void SetGroundedStatus(bool status)
+    {
+        isGrounded = status;
+    }
+    
+    public bool GetGroundedStatus()
+    {
+        return isGrounded;
+    }
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
@@ -62,5 +77,5 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
         }
-    }
+    }*/
 }
