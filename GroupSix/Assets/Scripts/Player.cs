@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpSpeed = 1f;
     [SerializeField] float fallMultiplier = 2.5f;
     bool isGrounded = false;
+    bool isWalking = false;
     bool jumped = false;
     [SerializeField] Rigidbody2D rb;
     // Start is called before the first frame update
@@ -19,7 +20,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Walk();
+        if (Input.GetAxis("Horizontal")!=0)
+        {
+            isWalking = true;
+        }
+        else
+        { 
+            isWalking = false;
+        }
+
+        //Walk();
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             jumped = true;
@@ -28,6 +38,10 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isWalking)
+        {
+            Walk();
+        }
         if (jumped)
         {
             Jump();
@@ -50,9 +64,12 @@ public class Player : MonoBehaviour
         var newXPos = transform.position.x + deltaX;
         transform.position = new Vector2(newXPos, transform.position.y);
         */
-        
+
         float horizontalVelocity = Input.GetAxis("Horizontal") * walkSpeed;
         rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
+        
+
+        //rb.AddForce(new Vector2(Input.GetAxis("Horizontal")* walkSpeed, 0));
     }
 
     public void SetGroundedStatus(bool status)

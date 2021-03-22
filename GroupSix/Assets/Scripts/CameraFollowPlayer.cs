@@ -6,6 +6,7 @@ public class CameraFollowPlayer : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] Vector3 offset;
+    [SerializeField] float lerpingRatio = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,10 +14,10 @@ public class CameraFollowPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 newPos = player.position + offset;
-        Vector3 pos= Vector3.Lerp(transform.position, newPos, 0.03f);
+        Vector3 pos= Vector3.Lerp(transform.position, newPos, lerpingRatio);
         transform.position = pos;
     }
 }
