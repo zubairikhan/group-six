@@ -1025,7 +1025,7 @@ Transform:
   m_LocalScale: {x: 1, y: 5.4649696, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &135710681
 GameObject:
@@ -1199,7 +1199,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -7982936755821050335, guid: ddb30265b45a6c942b7daa012ce4a8b4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11638,7 +11638,7 @@ PrefabInstance:
     - target: {fileID: 5032201130314595281, guid: f4851d988b2c2bc4396046908e3f3964,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5032201130314595281, guid: f4851d988b2c2bc4396046908e3f3964,
         type: 3}
