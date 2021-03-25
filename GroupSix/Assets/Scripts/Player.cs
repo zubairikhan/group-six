@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private float dirX;
     private bool facingRight = true;
     private Vector3 localScale;
+    private Vector3 checkPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         localScale = transform.localScale;
-                
+        checkPoint = transform.position; 
     }
 
     // Update is called once per frame
@@ -131,6 +132,14 @@ public class Player : MonoBehaviour
     public bool GetGroundedStatus()
     {
         return isGrounded;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "bottom")
+        {
+            transform.position = checkPoint;
+        }
     }
     /*private void OnCollisionEnter2D(Collision2D collision)
     {
