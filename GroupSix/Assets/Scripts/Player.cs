@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] float walkSpeed= 1f;
     [SerializeField] float jumpSpeed = 1f;
     [SerializeField] float fallMultiplier = 2.5f;
     bool isGrounded = false;
     bool isWalking = false;
     bool jumped = false;
-    [SerializeField] Rigidbody2D rb;
+    
 
     private Animator anim;
     private float dirX;
