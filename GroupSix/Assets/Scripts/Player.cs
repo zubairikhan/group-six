@@ -31,99 +31,90 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dirX = Input.GetAxisRaw("Horizontal") * walkSpeed;
+        dirX = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetButtonDown("Jump") && rb.velocity.y == 0){
-            rb.AddForce(Vector2.up * 500f);
-        }
-
-        if(Mathf.Abs(dirX) > 0 && rb.velocity.y == 0){
-            anim.SetBool("isWalking", true);
-        }
-        else{
-            anim.SetBool("isWalking", false);
-        }
-
-        if(rb.velocity.y == 0){
-            anim.SetBool("jumped", false);
-        }
-        if (rb.velocity.y > 0){
-            anim.SetBool("jumped", true);
-        }
-        if (rb.velocity.y < 0){
-            anim.SetBool("jumped", false);
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            jumped = true;
         }
         
-
-    //     if (Input.GetAxis("Horizontal")!=0)
-    //     {
-    //         isWalking = true;
-    //     }
-    //     else
-    //     { 
-    //         isWalking = false;
-    //     }
-
-    //     //Walk();
-    //     if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-    //     {
-    //         jumped = true;
-    //     }
-    // }
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(dirX, rb.velocity.y);
-        
-        // if (isWalking)
-        // {
-        //     Walk();
-        // }
-        // if (jumped)
-        // {
-        //     Jump();
-        // }
-        // if ( rb.velocity.y < 0)
-        // {
-        //     rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime; 
-        // }
+        Walk();
+        //rb.velocity = new Vector2(dirX, rb.velocity.y);
+
+
+        if (jumped)
+        {
+            Jump();
+        }
+
+        QuickFall();
     }
 
-    void LateUpdate(){
-        if (dirX > 0){
+    private void QuickFall()
+    {
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+    }
+
+    void LateUpdate()
+    {
+        ChangeDirection();
+    }
+
+    private void ChangeDirection()
+    {
+        if (dirX > 0)
+        {
             facingRight = true;
         }
-        else if(dirX < 0){
+        else if (dirX < 0)
+        {
             facingRight = false;
         }
 
-        if(((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0))){
+        if (((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0)))
+        {
             localScale.x *= -1;
         }
         transform.localScale = localScale;
     }
-    
 
-    // private void Jump()
-    // {
-    //     rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-    //     jumped = false;
-    // }
-
-    // private void Walk()
-    // {
-    //     /*var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * walkSpeed;
-    //     var newXPos = transform.position.x + deltaX;
-    //     transform.position = new Vector2(newXPos, transform.position.y);
-    //     */
-
-    //     float horizontalVelocity = Input.GetAxis("Horizontal") * walkSpeed;
-    //     rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
+    private void Jump()
+    {
         
+        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        anim.SetBool("jumped", true);
+        
+        jumped = false;
+        
+    }
 
-    //     //rb.AddForce(new Vector2(Input.GetAxis("Horizontal")* walkSpeed, 0));
-    // }
+    private void Walk()
+    {
+        float horizontalVelocity = dirX * walkSpeed;
+        rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
+
+        if (Mathf.Abs(dirX) > 0 && rb.velocity.y == 0)
+        {
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            anim.SetBool("isRunning", false);
+        }
+    }
+
+    public void StopJumpAnimation()
+    {
+        Debug.Log("Stopping jump anim");
+        anim.SetBool("jumped", false);
+    }
 
     public void SetGroundedStatus(bool status)
     {
