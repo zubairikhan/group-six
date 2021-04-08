@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && extraJumpsLeft > 0)
+        /*if (Input.GetKeyDown(KeyCode.Space) && extraJumpsLeft > 0)
         {
             jump = true;
         }
@@ -71,6 +71,7 @@ public class Player : MonoBehaviour
         {
             jump = true;
         }
+        */
         
     }
 
@@ -80,10 +81,11 @@ public class Player : MonoBehaviour
 
         Walk();
         
-        if (jump)
+        /*if (jump)
         {
             Jump();
         }
+        */
 
         QuickFall();
     }
@@ -119,13 +121,16 @@ public class Player : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    private void Jump()
+    public void Jump()
     {
+        if(extraJumpsLeft > 0 || extraJumpsLeft <=0 && isGrounded)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            extraJumpsLeft--;
+            anim.SetBool("jumped", true);
+            //jump = false;
+        }
         
-        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-        extraJumpsLeft--;
-        anim.SetBool("jumped", true);
-        jump = false;
     }
 
     private void Walk()
