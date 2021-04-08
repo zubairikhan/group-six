@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] float fallMultiplier = 2.5f;
     [SerializeField] int extraJumpsAllowed;
 
+    [SerializeField] Joystick joystick;
+
     int extraJumpsLeft;
     bool isWalking = false;
     bool jump = false;
@@ -38,12 +40,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dirX = Input.GetAxisRaw("Horizontal");
+        //dirX = Input.GetAxisRaw("Horizontal");
+        if (joystick.Horizontal >= 0.2f)
+        {
+            dirX = 1;
+        }
+        else if (joystick.Horizontal <= -0.2f)
+        {
+            dirX = -1;
+        }
+        else
+        {
+            dirX = 0f;
+        }
+
+        //dirX = joystick.Horizontal;
 
         if (isGrounded == true)
         {
             extraJumpsLeft = extraJumpsAllowed;
         }
+
+
 
         if (Input.GetKeyDown(KeyCode.Space) && extraJumpsLeft > 0)
         {
