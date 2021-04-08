@@ -40,7 +40,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //dirX = Input.GetAxisRaw("Horizontal");
+        //movement with keyboard
+        dirX = Input.GetAxisRaw("Horizontal");
+
+        /*For joystick control. Do NOT delete
         if (joystick.Horizontal >= 0.2f)
         {
             dirX = 1;
@@ -53,8 +56,9 @@ public class Player : MonoBehaviour
         {
             dirX = 0f;
         }
+        */
 
-        //dirX = joystick.Horizontal;
+        
 
         if (isGrounded == true)
         {
@@ -62,8 +66,8 @@ public class Player : MonoBehaviour
         }
 
 
-
-        /*if (Input.GetKeyDown(KeyCode.Space) && extraJumpsLeft > 0)
+        //jump using keyboard
+        if (Input.GetKeyDown(KeyCode.Space) && extraJumpsLeft > 0)
         {
             jump = true;
         }
@@ -71,7 +75,7 @@ public class Player : MonoBehaviour
         {
             jump = true;
         }
-        */
+        
         
     }
 
@@ -80,12 +84,13 @@ public class Player : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         Walk();
-        
-        /*if (jump)
+
+        //jump using keyboard
+        if (jump)
         {
             Jump();
         }
-        */
+        
 
         QuickFall();
     }
@@ -121,8 +126,9 @@ public class Player : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    public void Jump()
+    private void Jump()
     {
+        /*Jump for mobile input
         if(extraJumpsLeft > 0 || extraJumpsLeft <=0 && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
@@ -130,6 +136,13 @@ public class Player : MonoBehaviour
             anim.SetBool("jumped", true);
             //jump = false;
         }
+        */
+
+        //jump using keyboard
+        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        extraJumpsLeft--;
+        anim.SetBool("jumped", true);
+        jump = false;
         
     }
 
