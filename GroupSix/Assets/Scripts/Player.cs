@@ -8,10 +8,16 @@ public class Player : MonoBehaviour
     [SerializeField] float walkSpeed= 1f;
     [SerializeField] float jumpSpeed = 1f;
     [SerializeField] float fallMultiplier = 2.5f;
-    bool isGrounded = false;
+    [SerializeField] int extraJumpsAllowed;
+
+    int extraJumpsLeft;
     bool isWalking = false;
-    bool jumped = false;
-    
+    bool jump = false;
+    bool isGrounded = false;
+
+    [SerializeField] Transform groundCheck;
+    [SerializeField] float checkRadius;
+    [SerializeField] LayerMask whatIsGround;
 
     private Animator anim;
     private float dirX;
@@ -22,6 +28,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        extraJumpsLeft = extraJumpsAllowed;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         localScale = transform.localScale;
@@ -33,20 +40,29 @@ public class Player : MonoBehaviour
     {
         dirX = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (isGrounded == true)
         {
-            jumped = true;
+            extraJumpsLeft = extraJumpsAllowed;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && extraJumpsLeft > 0)
+        {
+            jump = true;
+        }
+        else if(Input.GetKeyDown(KeyCode.Space) && extraJumpsLeft <= 0 && isGrounded)
+        {
+            jump = true;
         }
         
     }
 
     void FixedUpdate()
     {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+
         Walk();
-        //rb.velocity = new Vector2(dirX, rb.velocity.y);
-
-
-        if (jumped)
+        
+        if (jump)
         {
             Jump();
         }
@@ -89,10 +105,9 @@ public class Player : MonoBehaviour
     {
         
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        extraJumpsLeft--;
         anim.SetBool("jumped", true);
-        
-        jumped = false;
-        
+        jump = false;
     }
 
     private void Walk()
@@ -112,19 +127,9 @@ public class Player : MonoBehaviour
 
     public void StopJumpAnimation()
     {
-        Debug.Log("Stopping jump anim");
         anim.SetBool("jumped", false);
     }
 
-    public void SetGroundedStatus(bool status)
-    {
-        isGrounded = status;
-    }
-    
-    public bool GetGroundedStatus()
-    {
-        return isGrounded;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -133,19 +138,5 @@ public class Player : MonoBehaviour
             transform.position = checkPoint;
         }
     }
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            isGrounded = false;
-        }
-    }*/
+    
 }
