@@ -27,9 +27,12 @@ public class Player : MonoBehaviour
     private Vector3 localScale;
     private Vector3 checkPoint;
 
+    PlayerHealth playerHealth;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerHealth = GetComponent<PlayerHealth>();
         extraJumpsLeft = extraJumpsAllowed;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -40,6 +43,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            playerHealth.UpdateHealth(-25);
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            playerHealth.UpdateHealth(25);
+        }
+
         //movement with keyboard
         dirX = Input.GetAxisRaw("Horizontal");
 
