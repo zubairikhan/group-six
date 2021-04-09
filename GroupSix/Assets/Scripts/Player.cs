@@ -8,9 +8,13 @@ public class Player : MonoBehaviour
     [SerializeField] float walkSpeed= 1f;
     [SerializeField] float jumpSpeed = 1f;
     [SerializeField] float fallMultiplier = 2.5f;
+    [SerializeField] float stompingFallMultiplier = 3.5f;
     [SerializeField] int extraJumpsAllowed;
+    [SerializeField] float stompModePermissionDuration;
+
 
     [SerializeField] Joystick joystick;
+    [SerializeField] GameObject stompTrigger;
 
     int extraJumpsLeft;
     bool isWalking = false;
@@ -19,7 +23,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] Transform groundCheck;
     [SerializeField] float checkRadius;
-    [SerializeField] LayerMask whatIsGround;
+    [SerializeField] LayerMask whatIsJumpable;
 
     private Animator anim;
     private float dirX;
@@ -28,6 +32,8 @@ public class Player : MonoBehaviour
     private Vector3 checkPoint;
 
     PlayerHealth playerHealth;
+    bool canStomp;
+    bool isStomping;
 
     // Start is called before the first frame update
     void Start()
@@ -43,14 +49,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            playerHealth.UpdateHealth(-25);
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            playerHealth.UpdateHealth(25);
-        }
+       
 
         //movement with keyboard
         dirX = Input.GetAxisRaw("Horizontal");
@@ -75,25 +74,29 @@ public class Player : MonoBehaviour
         if (isGrounded == true)
         {
             extraJumpsLeft = extraJumpsAllowed;
+            
         }
 
 
         //jump using keyboard
-        if (Input.GetKeyDown(KeyCode.Space) && extraJumpsLeft > 0)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumpsLeft > 0)
         {
             jump = true;
         }
-        else if(Input.GetKeyDown(KeyCode.Space) && extraJumpsLeft <= 0 && isGrounded)
+        else if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumpsLeft <= 0 && isGrounded)
         {
             jump = true;
         }
-        
-        
+        if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && canStomp)
+        {
+            ToggleStompMode(true);
+        }
+
     }
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsJumpable);
 
         Walk();
 
@@ -101,6 +104,7 @@ public class Player : MonoBehaviour
         if (jump)
         {
             Jump();
+            
         }
         
 
@@ -109,9 +113,13 @@ public class Player : MonoBehaviour
 
     private void QuickFall()
     {
-        if (rb.velocity.y < 0)
+        if (rb.velocity.y < 0 && !isStomping)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y < 0 && isStomping)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (stompingFallMultiplier - 1) * Time.deltaTime;
         }
     }
 
@@ -140,6 +148,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
+
         /*Jump for mobile input
         if(extraJumpsLeft > 0 || extraJumpsLeft <=0 && isGrounded)
         {
@@ -155,6 +164,11 @@ public class Player : MonoBehaviour
         extraJumpsLeft--;
         anim.SetBool("jumped", true);
         jump = false;
+
+        StartCoroutine(ToggleStompPermission());
+
+
+
         
     }
 
@@ -178,6 +192,22 @@ public class Player : MonoBehaviour
         anim.SetBool("jumped", false);
     }
 
+    IEnumerator ToggleStompPermission()
+    {
+        canStomp = true;
+        
+        yield return new WaitForSeconds(stompModePermissionDuration);
+        canStomp = false;
+        
+
+    }
+
+    private void ToggleStompMode(bool status)
+    {
+        isStomping = status;
+        stompTrigger.SetActive(status);
+        Debug.Log("isStomping: " + isStomping);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -186,5 +216,11 @@ public class Player : MonoBehaviour
             transform.position = checkPoint;
         }
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(isStomping)
+            ToggleStompMode(false);
+    }
+
 }
