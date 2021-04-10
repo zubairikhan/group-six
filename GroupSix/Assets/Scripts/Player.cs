@@ -227,7 +227,7 @@ public class Player : MonoBehaviour
     {
         isStomping = status;
         stompTrigger.SetActive(status);
-        Debug.Log("isStomping: " + isStomping);
+        //Debug.Log("isStomping: " + isStomping);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
