@@ -32,8 +32,9 @@ public class Player : MonoBehaviour
     private Vector3 checkPoint;
 
     PlayerHealth playerHealth;
-    bool canStomp;
+    bool canStomp= false;
     bool isStomping;
+    bool swipedDown;
 
     // Start is called before the first frame update
     void Start()
@@ -54,12 +55,12 @@ public class Player : MonoBehaviour
         //movement with keyboard
         dirX = Input.GetAxisRaw("Horizontal");
 
-        /*For joystick control. Do NOT delete
-        if (joystick.Horizontal >= 0.2f)
+        //For joystick control. Do NOT delete
+        /*if (joystick.Horizontal >= 0.5f)
         {
             dirX = 1;
         }
-        else if (joystick.Horizontal <= -0.2f)
+        else if (joystick.Horizontal <= -0.5f)
         {
             dirX = -1;
         }
@@ -68,6 +69,7 @@ public class Player : MonoBehaviour
             dirX = 0f;
         }
         */
+        
 
         
 
@@ -87,11 +89,31 @@ public class Player : MonoBehaviour
         {
             jump = true;
         }
+
+        //Stomping using keyboard
         if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && canStomp)
         {
             ToggleStompMode(true);
         }
+        
 
+        //stomping using mobile
+        /*
+        if (joystick.Vertical > -0.2f)
+        {
+            swipedDown = false;
+        }
+
+        if (joystick.Vertical <= -0.7f && canStomp)
+        {
+            if (!swipedDown)
+            {
+                ToggleStompMode(true);
+                swipedDown = true;
+            }
+        }
+        */
+        
     }
 
     void FixedUpdate()
@@ -106,6 +128,7 @@ public class Player : MonoBehaviour
             Jump();
             
         }
+        
         
 
         QuickFall();
@@ -146,11 +169,11 @@ public class Player : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    private void Jump()
+    public void Jump()
     {
 
-        /*Jump for mobile input
-        if(extraJumpsLeft > 0 || extraJumpsLeft <=0 && isGrounded)
+        //Jump for mobile input
+        /*if(extraJumpsLeft > 0 || extraJumpsLeft <=0 && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             extraJumpsLeft--;
@@ -158,13 +181,14 @@ public class Player : MonoBehaviour
             //jump = false;
         }
         */
+        
 
         //jump using keyboard
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         extraJumpsLeft--;
         anim.SetBool("jumped", true);
         jump = false;
-
+        
         StartCoroutine(ToggleStompPermission());
 
 
@@ -208,6 +232,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        ResetWhenFall(collision);
+    }
+
+    private void ResetWhenFall(Collider2D collision)
+    {
         if (collision.tag == "bottom")
         {
             transform.position = checkPoint;
@@ -216,8 +245,20 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(isStomping)
-            ToggleStompMode(false);
+        StopStomping(collision);
+
+    }
+
+    private void StopStomping(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            if (isStomping)
+            {
+                ToggleStompMode(false);
+                swipedDown = false;
+            }
+        }
     }
 
     public void StopJumpAnimation()
@@ -226,7 +267,7 @@ public class Player : MonoBehaviour
     }
     public void SetIsStomping(bool status)
     {
-        isStomping = status;
+        ToggleStompMode(false);
     }
 
 }

@@ -12133,11 +12133,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MobileInputCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 991163406058363201, guid: 7355cab8fbdb5b741a97178a9e8d1c7b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 991163406058363205, guid: 7355cab8fbdb5b741a97178a9e8d1c7b,
         type: 3}
       propertyPath: m_Pivot.x
