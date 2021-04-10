@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 228582912}
   - component: {fileID: 228582913}
+  - component: {fileID: 1662092367}
   m_Layer: 0
   m_Name: Stomp Trigger
-  m_TagString: Untagged
+  m_TagString: Stomper
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228582911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: -1.09, z: 0}
+  m_LocalPosition: {x: -0.14, y: -0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5032201130314595281}
@@ -57,6 +58,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.17896271}
   m_EdgeRadius: 0
+--- !u!114 &1662092367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228582911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3727b342536c1ec41ba2c018ce202ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRb: {fileID: 5032201130314595309}
+  player: {fileID: 5032201130314595280}
 --- !u!1 &5032201130314595310
 GameObject:
   m_ObjectHideFlags: 0

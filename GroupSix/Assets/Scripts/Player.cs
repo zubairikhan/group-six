@@ -187,10 +187,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void StopJumpAnimation()
-    {
-        anim.SetBool("jumped", false);
-    }
+    
 
     IEnumerator ToggleStompPermission()
     {
@@ -221,6 +218,15 @@ public class Player : MonoBehaviour
     {
         if(isStomping)
             ToggleStompMode(false);
+    }
+
+    public void StopJumpAnimation()
+    {
+        anim.SetBool("jumped", false);
+    }
+    public void SetIsStomping(bool status)
+    {
+        isStomping = status;
     }
 
 }
