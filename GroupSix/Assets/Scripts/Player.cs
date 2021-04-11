@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     private float dirX;
     private bool facingRight = true;
     private Vector3 localScale;
-    private Vector3 checkPoint;
+    public Vector3 checkPoint;
 
     PlayerHealth playerHealth;
     bool canStomp= false;
@@ -232,7 +232,21 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ResetWhenFall(collision);
+
+        if(collision.tag == "bottom")
+        {
+            ResetWhenFall(collision);
+        }
+
+        else if (collision.tag == "Checkpoint")
+        {
+            checkPoint = collision.transform.position;
+
+        }
+        
+
+
+        
     }
 
     private void ResetWhenFall(Collider2D collision)
@@ -241,6 +255,10 @@ public class Player : MonoBehaviour
         {
             transform.position = checkPoint;
         }
+
+        
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
