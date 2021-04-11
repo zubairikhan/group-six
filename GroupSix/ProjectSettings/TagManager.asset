@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Breakable
   - Stomper
+  - turn
   layers:
   - Default
   - TransparentFX
