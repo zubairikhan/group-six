@@ -5,7 +5,7 @@ using UnityEngine;
 public class CheckpointController : MonoBehaviour
 {
     public bool checkpointReached; 
-    Player playerObj = new Player();
+    //Player playerObj = new Player();
 
 
     // Start is called before the first frame update
