@@ -22,7 +22,11 @@ public class EnemyBullet : MonoBehaviour
     */
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Die();
+        if (collision.tag == "Player")
+        {
+            Die();
+        }
+        
     }
 
 

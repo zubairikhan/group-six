@@ -35,4 +35,6 @@ public class enemy1move : MonoBehaviour
             }
         }
     }
+
+    
 }

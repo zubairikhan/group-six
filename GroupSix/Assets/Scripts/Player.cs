@@ -222,7 +222,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    
+    public void Die()
+    {
+        Respawn();
+    }
+
+    private void Respawn()
+    {
+        transform.position = checkPoint;
+        playerHealth.InitializeHealthStatus();
+    }
 
     IEnumerator ToggleStompPermission()
     {
@@ -291,7 +300,7 @@ public class Player : MonoBehaviour
     {
         StopStomping(collision);
         
-
+        
     }
 
     private void StopStomping(Collision2D collision)
