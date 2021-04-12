@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
 
-    public float dieTime, damage;
+    public float dieTime;
     //public GameObject diePEFFECt;
 
 

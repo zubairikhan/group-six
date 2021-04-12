@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 7189236527726169898}
   - component: {fileID: 7189236527726169877}
   - component: {fileID: 7189236527726169876}
+  - component: {fileID: 4037727844558082587}
   m_Layer: 8
   m_Name: Enemy2
   m_TagString: Untagged
@@ -283,6 +284,19 @@ MonoBehaviour:
   mustPatrol: 0
   mustTurn: 0
   canShoot: 0
+--- !u!114 &4037727844558082587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189236527726169879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f38edafeab1c194eb3012802e063cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &7189236528406525162
 GameObject:
   m_ObjectHideFlags: 0

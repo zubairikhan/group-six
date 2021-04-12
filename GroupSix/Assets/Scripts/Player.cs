@@ -299,8 +299,13 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         StopStomping(collision);
-        
-        
+
+        DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
+        if (damageDealer != null)
+        {
+            Debug.Log("got damage dealer");
+            playerHealth.UpdateHealth(-damageDealer.GetDamage());
+        }
     }
 
     private void StopStomping(Collision2D collision)
