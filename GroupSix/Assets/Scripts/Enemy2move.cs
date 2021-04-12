@@ -16,9 +16,9 @@ public class Enemy2move : MonoBehaviour
     public Transform player, shootPos;
     public GameObject bullet;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool mustPatrol;
-    private bool mustTurn, canShoot;
+    public bool mustTurn, canShoot;
     
 
     void Start()
@@ -34,9 +34,10 @@ public class Enemy2move : MonoBehaviour
         }
 
         distToPlayer = Vector2.Distance(transform.position, player.position);
-
+        Debug.Log(distToPlayer);
         if(distToPlayer <= range)
         {
+            Debug.Log("here i am");
             if(player.position.x > transform.position.x && transform.localScale.x < 0
             ||player.position.x < transform.position.x && transform.localScale.x > 0)
             {
@@ -48,6 +49,7 @@ public class Enemy2move : MonoBehaviour
 
             if(canShoot)
             {
+                Debug.Log("here");
                 StartCoroutine(Shoot());
             }
         }
@@ -91,7 +93,7 @@ public class Enemy2move : MonoBehaviour
     IEnumerator Shoot(){ 
         canShoot = false;
         yield return new WaitForSeconds(timeBTWShots);
-        GameObject newBullet = Instantiate(bullet,shootPos.position, Quaternion.identity);
+        GameObject newBullet = Instantiate(bullet,shootPos.position, Quaternion.identity) as GameObject;
         
         newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeed * speed * Time.fixedDeltaTime, 0f);
         canShoot = true; 

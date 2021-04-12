@@ -11,7 +11,8 @@ public class EnemyBullet : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(CountDownTimer());
+        //StartCoroutine(CountDownTimer());
+        Destroy(gameObject, dieTime);
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -19,14 +20,14 @@ public class EnemyBullet : MonoBehaviour
         Die();
     }
 
-    IEnumerator CountDownTimer()
+    /*IEnumerator CountDownTimer()
     {
         yield return new WaitForSeconds(dieTime);
         Die();
-    }
+    }*/
 
     void Die()
     {
-      //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }
