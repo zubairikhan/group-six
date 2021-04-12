@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
     bool isStomping;
     bool swipedDown;
 
+    BatteryController batteryObj;
+    private int batteriesCollected;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +47,9 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         localScale = transform.localScale;
-        checkPoint = transform.position; 
+        checkPoint = transform.position;
+        batteriesCollected= 0;
+
     }
 
     // Update is called once per frame
@@ -243,10 +248,18 @@ public class Player : MonoBehaviour
             checkPoint = collision.transform.position;
 
         }
-        
+
+        else if (collision.tag == "battery")
+        {
+            batteriesCollected++;
+
+            Destroy(collision.gameObject);
+
+            Debug.Log("Battery Collected!");
+            print("Battery Collected!");
+        }
 
 
-        
     }
 
     private void ResetWhenFall(Collider2D collision)
