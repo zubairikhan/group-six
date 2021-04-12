@@ -36,10 +36,10 @@ public class Enemy2move : MonoBehaviour
         }
 
         distToPlayer = Vector2.Distance(transform.position, player.position);
-        Debug.Log(distToPlayer);
+        
         if(distToPlayer <= range)
         {
-            Debug.Log("here i am");
+            
             if(player.position.x > transform.position.x && transform.localScale.x < 0
             ||player.position.x < transform.position.x && transform.localScale.x > 0)
             {
@@ -51,7 +51,7 @@ public class Enemy2move : MonoBehaviour
 
             if(canShoot)
             {
-                Debug.Log("here");
+                
                 StartCoroutine(Shoot());
             }
         }

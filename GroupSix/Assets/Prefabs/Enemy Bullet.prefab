@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8201713826601084931}
   - component: {fileID: 575712154676382805}
   - component: {fileID: 475236136}
+  - component: {fileID: 5631409431849907574}
   m_Layer: 7
   m_Name: Enemy Bullet
   m_TagString: bullet
@@ -131,7 +132,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0025510788, y: -0.06567645}
@@ -166,3 +167,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5631409431849907574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388362514519063768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f38edafeab1c194eb3012802e063cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20

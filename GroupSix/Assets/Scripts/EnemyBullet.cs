@@ -15,10 +15,16 @@ public class EnemyBullet : MonoBehaviour
         Destroy(gameObject, dieTime);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    /*void OnCollisionEnter2D(Collision2D col)
     {
         Die();
     }
+    */
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Die();
+    }
+
 
     /*IEnumerator CountDownTimer()
     {

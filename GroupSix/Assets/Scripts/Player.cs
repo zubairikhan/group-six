@@ -35,9 +35,9 @@ public class Player : MonoBehaviour
     private Vector3 localScale;
     public Vector3 checkPoint;
 
-    EnemyBullet bullet;
+    
 
-    PlayerHealth playerHealth;
+    [SerializeField] PlayerHealth playerHealth;
     bool canStomp= false;
     bool isStomping;
     bool swipedDown;
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         localScale = transform.localScale;
         checkPoint = transform.position;
-        bullet = GetComponent<EnemyBullet>();
+        
 
     }
 
@@ -264,6 +264,13 @@ public class Player : MonoBehaviour
             print("Battery Collected!");
         }
 
+        DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
+        if (damageDealer !=null)
+        {
+            Debug.Log("got damage dealer");
+            playerHealth.UpdateHealth(-damageDealer.GetDamage());
+        }
+
         // else if (collision.tag == "bullet")
         // {  
         //     playerHealth.UpdateHealth(bullet.damage);
@@ -278,20 +285,12 @@ public class Player : MonoBehaviour
         {
             transform.position = checkPoint;
         }
-        
-
-        
-
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         StopStomping(collision);
-        if (collision.gameObject.tag == "bullet")
-        {  
-            playerHealth.UpdateHealth(bullet.damage);
-        }
+        
 
     }
 
