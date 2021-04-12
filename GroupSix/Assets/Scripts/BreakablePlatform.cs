@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BreakablePlatform : MonoBehaviour
 {
+    [SerializeField] List<Rigidbody2D> childrenRbs;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,19 @@ public class BreakablePlatform : MonoBehaviour
     {
         if (collision.tag == "Stomper")
         {
-            Destroy(gameObject);
+            ChangeRigidbodies();
+            Destroy(GetComponent<BoxCollider2D>());
+            
+        }
+    }
+
+    private void ChangeRigidbodies()
+    {
+        
+        foreach (var rock in childrenRbs)
+        {
+            rock.isKinematic = false;
+            
         }
     }
 }

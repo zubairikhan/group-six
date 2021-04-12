@@ -123,8 +123,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06811905, y: 0.025544643}
-  m_Size: {x: 1.2724762, y: 2.8004007}
+  m_Offset: {x: -0.090112686, y: 0.025544643}
+  m_Size: {x: 1.2284889, y: 2.8004007}
   m_Direction: 0
 --- !u!50 &5032201130314595309
 Rigidbody2D:
@@ -142,7 +142,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fe4541766b76820429f38d751e6c1e66, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -173,6 +173,7 @@ MonoBehaviour:
   whatIsJumpable:
     serializedVersion: 2
     m_Bits: 64
+  checkPoint: {x: 0, y: 0, z: 0}
 --- !u!212 &145847608
 SpriteRenderer:
   m_ObjectHideFlags: 0
