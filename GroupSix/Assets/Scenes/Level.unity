@@ -3353,6 +3353,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4171823803704180654, guid: 98dc173611486d24aa7e31318671fb2f,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98dc173611486d24aa7e31318671fb2f, type: 3}
 --- !u!1 &75836326
@@ -42185,6 +42190,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f49a4218713b74c4cbedf627341eee2d, type: 3}
+--- !u!114 &1522830457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4171823803704180655, guid: 98dc173611486d24aa7e31318671fb2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 72781809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64af947d34a97d349a01538110852730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1524888384
 GameObject:
   m_ObjectHideFlags: 0
@@ -58795,6 +58812,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2326613173778473687, guid: f4851d988b2c2bc4396046908e3f3964,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1522830457}
+    - target: {fileID: 2326613173778473687, guid: f4851d988b2c2bc4396046908e3f3964,
+        type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5032201130314595280, guid: f4851d988b2c2bc4396046908e3f3964,
         type: 3}
       propertyPath: joystick

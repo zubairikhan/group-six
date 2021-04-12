@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] int extraJumpsAllowed;
     [SerializeField] float stompModePermissionDuration;
 
+    
+
 
     [SerializeField] Joystick joystick;
     [SerializeField] GameObject stompTrigger;
@@ -31,6 +33,8 @@ public class Player : MonoBehaviour
     private Vector3 localScale;
     public Vector3 checkPoint;
 
+    EnemyBullet bullet;
+
     PlayerHealth playerHealth;
     bool canStomp= false;
     bool isStomping;
@@ -49,6 +53,7 @@ public class Player : MonoBehaviour
         localScale = transform.localScale;
         checkPoint = transform.position;
         batteriesCollected= 0;
+        bullet = GetComponent<EnemyBullet>();
 
     }
 
@@ -259,6 +264,11 @@ public class Player : MonoBehaviour
             print("Battery Collected!");
         }
 
+        // else if (collision.tag == "bullet")
+        // {  
+        //     playerHealth.UpdateHealth(bullet.damage);
+        // }
+
 
     }
 
@@ -268,6 +278,7 @@ public class Player : MonoBehaviour
         {
             transform.position = checkPoint;
         }
+        
 
         
 
@@ -277,6 +288,10 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         StopStomping(collision);
+        if (collision.gameObject.tag == "bullet")
+        {  
+            playerHealth.UpdateHealth(bullet.damage);
+        }
 
     }
 

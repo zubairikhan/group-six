@@ -23,6 +23,8 @@ public class Enemy2move : MonoBehaviour
 
     void Start()
     {
+
+        rb = GetComponent<Rigidbody2D>(); 
         mustPatrol = true;
         canShoot = true;
     }
@@ -73,8 +75,8 @@ public class Enemy2move : MonoBehaviour
         // {
         //     Flip();
         // }
-       // transform.Translate(speed * Time.deltaTime * speed,0,0);
-        rb.velocity = new Vector2(speed * Time.fixedDeltaTime, rb.velocity.y);
+        transform.Translate(speed * Time.deltaTime * speed,0,0);
+        //rb.velocity = new Vector2(speed * Time.fixedDeltaTime, rb.velocity.y);
     }
 
     void OnTriggerEnter2D(Collider2D trig){

@@ -11,6 +11,8 @@ TagManager:
   - Stomper
   - turn
   - Checkpoint
+  - battery
+  - bullet
   layers:
   - Default
   - TransparentFX

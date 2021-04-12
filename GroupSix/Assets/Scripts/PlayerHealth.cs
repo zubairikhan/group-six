@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float currentHealth;
-    [SerializeField] float maxHealth;
+    [SerializeField] public float currentHealth;
+    [SerializeField] public float maxHealth;
     [SerializeField] HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
@@ -16,10 +16,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 
     private float GetHealth()
     {
