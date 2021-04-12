@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float walkSpeed= 1f;
     [SerializeField] float jumpSpeed = 1f;
@@ -41,7 +43,7 @@ public class Player : MonoBehaviour
     bool swipedDown;
 
     BatteryController batteryObj;
-    private int batteriesCollected;
+    ScoreScript scoreObj;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +54,6 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         localScale = transform.localScale;
         checkPoint = transform.position;
-        batteriesCollected= 0;
         bullet = GetComponent<EnemyBullet>();
 
     }
@@ -256,10 +257,9 @@ public class Player : MonoBehaviour
 
         else if (collision.tag == "battery")
         {
-            batteriesCollected++;
 
+            ScoreScript.scoreValue++;
             Destroy(collision.gameObject);
-
             Debug.Log("Battery Collected!");
             print("Battery Collected!");
         }
