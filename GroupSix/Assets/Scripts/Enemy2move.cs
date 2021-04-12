@@ -48,9 +48,8 @@ public class Enemy2move : MonoBehaviour
 
             if(canShoot)
             {
-
+                StartCoroutine(Shoot());
             }
-            StartCoroutine(Shoot());
         }
         else
         {
@@ -58,36 +57,29 @@ public class Enemy2move : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if(mustPatrol)
-        {
-            mustTurn = !Physics2D.OverlapCircle(groundCheckPos.position, 0.1f, groundLayer);
-        }
-    }
+    // private void FixedUpdate()
+    // {
+    //     if(mustPatrol)
+    //     {
+    //         mustTurn = !Physics2D.OverlapCircle(groundCheckPos.position, 0.1f, groundLayer);
+    //     }
+    // }
 
     void Patrol()
     {
-        if(mustTurn || bodyCollider.IsTouchingLayers(groundLayer))
-        {
-            Flip();
-        }
+        // if(mustTurn || bodyCollider.IsTouchingLayers(groundLayer))
+        // {
+        //     Flip();
+        // }
+       // transform.Translate(speed * Time.deltaTime * speed,0,0);
         rb.velocity = new Vector2(speed * Time.fixedDeltaTime, rb.velocity.y);
     }
 
-
-
-
-    // void OnTriggerEnter2D(Collider2D trig){
-    //     if(trig.gameObject.CompareTag("turn")){
-    //         if (MoveRight){
-    //             MoveRight = false;
-    //         }
-    //         else{
-    //             MoveRight = true;
-    //         }
-    //     }
-    // }
+    void OnTriggerEnter2D(Collider2D trig){
+        if(trig.gameObject.CompareTag("turn")){
+         Flip();   
+        }
+    }
 
     void Flip(){
         mustPatrol = false;

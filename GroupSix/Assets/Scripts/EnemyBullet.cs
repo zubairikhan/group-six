@@ -6,7 +6,7 @@ public class EnemyBullet : MonoBehaviour
 {
 
     public float dieTime, damage;
-    public GameObject diePEFFECt;
+    //public GameObject diePEFFECt;
 
 
     void Start()
@@ -27,6 +27,6 @@ public class EnemyBullet : MonoBehaviour
 
     void Die()
     {
-        Destroy(diePEFFECt);
+      //Destroy(gameObject);
     }
 }
