@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Zubair.unity
     guid: 7cb891c8c8a19aa40959c750f7dd9943
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   m_configObjects: {}
