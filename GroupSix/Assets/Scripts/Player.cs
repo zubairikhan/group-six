@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-
-    [SerializeField] Rigidbody2D rb;
+    [Header("Movement configs")]
     [SerializeField] float walkSpeed= 1f;
     [SerializeField] float jumpSpeed = 1f;
     [SerializeField] float fallMultiplier = 2.5f;
@@ -14,17 +12,18 @@ public class Player : MonoBehaviour
     [SerializeField] int extraJumpsAllowed;
     [SerializeField] float stompModePermissionDuration;
 
-    
-
-
+    [Header("References")]
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] Joystick joystick;
     [SerializeField] GameObject stompTrigger;
+    [SerializeField] PlayerHealth playerHealth;
 
     int extraJumpsLeft;
     bool isWalking = false;
     bool jump = false;
     bool isGrounded = false;
 
+    [Header("Wall jumping configs")]
     [SerializeField] Transform groundCheck;
     [SerializeField] float checkRadius;
     [SerializeField] LayerMask whatIsJumpable;
@@ -33,11 +32,11 @@ public class Player : MonoBehaviour
     private float dirX;
     private bool facingRight = true;
     private Vector3 localScale;
+
+    [Header("Latest checkpoint")]
     public Vector3 checkPoint;
 
     
-
-    [SerializeField] PlayerHealth playerHealth;
     bool canStomp= false;
     bool isStomping;
     bool swipedDown;
@@ -264,17 +263,14 @@ public class Player : MonoBehaviour
 
         else if (collision.tag == "Checkpoint")
         {
-            checkPoint = collision.transform.position;
+            UpdateCheckpoint(collision);
 
         }
 
         else if (collision.tag == "battery")
         {
+            CollectBattery(collision);
 
-            ScoreScript.scoreValue++;
-            Destroy(collision.gameObject);
-            Debug.Log("Battery Collected!");
-            print("Battery Collected!");
         }
 
         DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
@@ -282,18 +278,31 @@ public class Player : MonoBehaviour
         {
             TakeDamage(damageDealer);
         }
+    }
 
-        // else if (collision.tag == "bullet")
-        // {  
-        //     playerHealth.UpdateHealth(bullet.damage);
-        // }
+    private void UpdateCheckpoint(Collider2D collision)
+    {
+        checkPoint = collision.transform.position;
+    }
 
-
+    private static void CollectBattery(Collider2D collision)
+    {
+        ScoreScript.scoreValue++;
+        Destroy(collision.gameObject);
     }
 
     private void TakeDamage(DamageDealer damageDealer)
     {
         playerHealth.UpdateHealth(-damageDealer.GetDamage());
+
+    }
+
+    IEnumerator PlayerBlink()
+    {
+        while (true)
+        {
+
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
