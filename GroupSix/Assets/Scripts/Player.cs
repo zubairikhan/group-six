@@ -326,7 +326,7 @@ public class Player : MonoBehaviour
         
         playerBlink= StartCoroutine(PlayerBlink());
         //Vector2 force = new Vector2(-5f, 10f);
-        //rb.AddForce(force, ForceMode2D.Impulse);
+        //rb.velocity = force;
 
     }
 

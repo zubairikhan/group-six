@@ -4376,6 +4376,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d76936f87259044bbc2faa2d6a87b0f, type: 3}
+--- !u!212 &507845865 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 145847608, guid: f4851d988b2c2bc4396046908e3f3964,
+    type: 3}
+  m_PrefabInstance: {fileID: 5032201131375928243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &510238182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4265078126166726237, guid: f49a4218713b74c4cbedf627341eee2d,
@@ -17478,7 +17484,7 @@ PrefabInstance:
     - target: {fileID: 7325701539931337952, guid: 687bfccd2560f8e45bf2b3f6bbfacb07,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.9
       objectReference: {fileID: 0}
     - target: {fileID: 7325701539931337952, guid: 687bfccd2560f8e45bf2b3f6bbfacb07,
         type: 3}
@@ -17751,6 +17757,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 145847608, guid: f4851d988b2c2bc4396046908e3f3964, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2326613173778473687, guid: f4851d988b2c2bc4396046908e3f3964,
         type: 3}
       propertyPath: healthBar
@@ -17766,6 +17776,16 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 5924351706406004773}
+    - target: {fileID: 5032201130314595280, guid: f4851d988b2c2bc4396046908e3f3964,
+        type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 507845865}
+    - target: {fileID: 5032201130314595280, guid: f4851d988b2c2bc4396046908e3f3964,
+        type: 3}
+      propertyPath: playerBlinkingTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5032201130314595281, guid: f4851d988b2c2bc4396046908e3f3964,
         type: 3}
       propertyPath: m_RootOrder
