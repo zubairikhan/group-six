@@ -12,11 +12,16 @@ public class Player : MonoBehaviour
     [SerializeField] int extraJumpsAllowed;
     [SerializeField] float stompModePermissionDuration;
 
+
+    [Header("Extra configs")]
+    [SerializeField] float playerBlinkingTime= 0.5f;
+
     [Header("References")]
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Joystick joystick;
     [SerializeField] GameObject stompTrigger;
     [SerializeField] PlayerHealth playerHealth;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     int extraJumpsLeft;
     bool isWalking = false;
@@ -43,6 +48,8 @@ public class Player : MonoBehaviour
 
     BatteryController batteryObj;
     ScoreScript scoreObj;
+
+    private Coroutine playerBlink;
 
     // Start is called before the first frame update
     void Start()
@@ -280,6 +287,24 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        StopStomping(collision);
+
+        DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
+        if (damageDealer != null)
+        {
+            TakeDamage(damageDealer);
+        }
+
+        /*if (collision.gameObject.tag == "EnemyTop")
+        {
+            Vector2 force = new Vector2(-1f, 1f);
+            rb.AddForce(force, ForceMode2D.Impulse);
+        }
+        */
+    }
+
     private void UpdateCheckpoint(Collider2D collision)
     {
         checkPoint = collision.transform.position;
@@ -294,27 +319,30 @@ public class Player : MonoBehaviour
     private void TakeDamage(DamageDealer damageDealer)
     {
         playerHealth.UpdateHealth(-damageDealer.GetDamage());
+        if(playerBlink != null)
+        {
+            StopCoroutine(playerBlink);
+        }
+        
+        playerBlink= StartCoroutine(PlayerBlink());
+        //Vector2 force = new Vector2(-5f, 10f);
+        //rb.AddForce(force, ForceMode2D.Impulse);
 
     }
 
     IEnumerator PlayerBlink()
     {
-        while (true)
+        int count = 7;
+        while (count >=0 )
         {
-
+            spriteRenderer.enabled = !spriteRenderer.enabled;
+            yield return new WaitForSeconds(playerBlinkingTime);
+            count--;
         }
+        spriteRenderer.enabled = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        StopStomping(collision);
-
-        DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
-        if (damageDealer != null)
-        {
-            TakeDamage(damageDealer);
-        }
-    }
+    
 
     private void ResetWhenFall(Collider2D collision)
     {
