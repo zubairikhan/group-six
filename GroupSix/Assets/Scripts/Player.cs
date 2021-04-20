@@ -313,7 +313,9 @@ public class Player : MonoBehaviour
     private static void CollectBattery(Collider2D collision)
     {
         ScoreScript.scoreValue++;
+        FindObjectOfType<audiomanager>().Play("cell collection");
         Destroy(collision.gameObject);
+
     }
 
     private void TakeDamage(DamageDealer damageDealer)
