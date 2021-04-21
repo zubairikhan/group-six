@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     [Header("Extra configs")]
     [SerializeField] float playerBlinkingTime= 0.5f;
+    [SerializeField] float playerJumpOffEnemyForce = 5f;
 
     [Header("References")]
     [SerializeField] Rigidbody2D rb;
@@ -280,29 +281,44 @@ public class Player : MonoBehaviour
 
         }
 
-        DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
+        if (collision.gameObject.tag == "bullet")
+        {
+            DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
+            TakeDamage(damageDealer);
+        }
+        /*DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
         if (damageDealer !=null)
         {
             TakeDamage(damageDealer);
         }
+        */
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         StopStomping(collision);
 
-        DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
+        if (collision.gameObject.tag == "EnemyTop")
+        {
+            
+            Vector2 force = new Vector2(0f, playerJumpOffEnemyForce);
+            rb.AddForce(force, ForceMode2D.Impulse);
+            
+        }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
+            TakeDamage(damageDealer);
+        }
+        /*DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
         if (damageDealer != null)
         {
             TakeDamage(damageDealer);
         }
-
-        /*if (collision.gameObject.tag == "EnemyTop")
-        {
-            Vector2 force = new Vector2(-1f, 1f);
-            rb.AddForce(force, ForceMode2D.Impulse);
-        }
         */
+
+        
+        
     }
 
     private void UpdateCheckpoint(Collider2D collision)

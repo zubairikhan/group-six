@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!50 &691293705
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4160937290048891417}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5920693122801238020
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,10 +61,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7325701539931337952}
     m_Modifications:
+    - target: {fileID: 421788395, guid: 8eb209eb8b02c01459701d1100cfdf7f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6280731
+      objectReference: {fileID: 0}
+    - target: {fileID: 421788395, guid: 8eb209eb8b02c01459701d1100cfdf7f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.023820877
+      objectReference: {fileID: 0}
+    - target: {fileID: 421788395, guid: 8eb209eb8b02c01459701d1100cfdf7f, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.11593455
+      objectReference: {fileID: 0}
+    - target: {fileID: 421788395, guid: 8eb209eb8b02c01459701d1100cfdf7f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.2837944
+      objectReference: {fileID: 0}
     - target: {fileID: 7189236527726169879, guid: 8eb209eb8b02c01459701d1100cfdf7f,
         type: 3}
       propertyPath: m_Name
       value: Enemy2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189236527726169879, guid: 8eb209eb8b02c01459701d1100cfdf7f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7189236527726169897, guid: 8eb209eb8b02c01459701d1100cfdf7f,
         type: 3}
@@ -100,11 +142,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7189236527726169899, guid: 8eb209eb8b02c01459701d1100cfdf7f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.18981779
+      objectReference: {fileID: 0}
+    - target: {fileID: 7189236527726169899, guid: 8eb209eb8b02c01459701d1100cfdf7f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.048566163
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8eb209eb8b02c01459701d1100cfdf7f, type: 3}
 --- !u!4 &6520036759194574808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7189236527726169897, guid: 8eb209eb8b02c01459701d1100cfdf7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4160937289933492465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4160937290048891417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 421788392, guid: 8eb209eb8b02c01459701d1100cfdf7f,
     type: 3}
   m_PrefabInstance: {fileID: 4160937289933492465}
   m_PrefabAsset: {fileID: 0}

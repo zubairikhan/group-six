@@ -159,15 +159,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06a1e4765bee3842908727adaab20e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 5032201130314595309}
   walkSpeed: 5
   jumpSpeed: 8
   fallMultiplier: 2.5
   stompingFallMultiplier: 6
   extraJumpsAllowed: 1
   stompModePermissionDuration: 0.5
+  playerBlinkingTime: 0.2
+  playerJumpOffEnemyForce: 9
+  rb: {fileID: 5032201130314595309}
   joystick: {fileID: 0}
   stompTrigger: {fileID: 228582911}
+  playerHealth: {fileID: 0}
+  spriteRenderer: {fileID: 145847608}
   groundCheck: {fileID: 5032201130345604857}
   checkRadius: 0.5
   whatIsJumpable:
@@ -257,9 +261,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c813ccac4a6a57646a41675d075f7b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
+  currentHealth: 100
   maxHealth: 100
   healthBar: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &5032201130345604858
 GameObject:
   m_ObjectHideFlags: 0
