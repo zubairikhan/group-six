@@ -21,10 +21,15 @@ public class BreakablePlatform : MonoBehaviour
     {
         if (collision.tag == "Stomper")
         {
-            ChangeRigidbodies();
+            Break();
             Destroy(GetComponent<BoxCollider2D>());
-            
         }
+    }
+
+    protected void Break()
+    {
+        ChangeRigidbodies();
+        
     }
 
     private void ChangeRigidbodies()
