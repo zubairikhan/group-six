@@ -302,8 +302,8 @@ public class Player : MonoBehaviour
         {
             
             Vector2 force = new Vector2(0f, playerJumpOffEnemyForce);
-            rb.AddForce(force, ForceMode2D.Impulse);
-            
+            //rb.AddForce(force, ForceMode2D.Impulse);
+            rb.velocity = force;
         }
         if(collision.gameObject.tag == "Enemy")
         {
