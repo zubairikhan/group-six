@@ -207,7 +207,9 @@ public class Player : MonoBehaviour
 
         //jump using keyboard
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        
         extraJumpsLeft--;
+        //FindObjectOfType<audiomanager>().Play("jump grunt");
         anim.SetBool("jumped", true);
         jump = false;
         
@@ -225,6 +227,7 @@ public class Player : MonoBehaviour
 
         if (Mathf.Abs(dirX) > 0 && rb.velocity.y == 0)
         {
+            
             anim.SetBool("isRunning", true);
         }
         else

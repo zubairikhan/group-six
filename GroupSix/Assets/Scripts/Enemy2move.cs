@@ -96,7 +96,7 @@ public class Enemy2move : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(timeBTWShots);
         GameObject newBullet = Instantiate(bullet,shootPos.position, Quaternion.identity) as GameObject;
-        
+        FindObjectOfType<audiomanager>().Play("projectile shoot");
         newBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(shootSpeed * speed * Time.fixedDeltaTime, 0f);
         canShoot = true; 
     }
