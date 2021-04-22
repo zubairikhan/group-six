@@ -281,7 +281,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag == "bullet")
+        if (collision.gameObject.tag == "bullet" || collision.gameObject.tag=="DmgRock")
         {
             DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
             TakeDamage(damageDealer);

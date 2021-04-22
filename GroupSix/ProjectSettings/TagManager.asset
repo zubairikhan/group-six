@@ -15,6 +15,7 @@ TagManager:
   - bullet
   - EnemyTop
   - Enemy
+  - DmgRock
   layers:
   - Default
   - TransparentFX
