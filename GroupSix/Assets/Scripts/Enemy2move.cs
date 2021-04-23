@@ -75,7 +75,7 @@ public class Enemy2move : MonoBehaviour
         // {
         //     Flip();
         // }
-        transform.Translate(speed * Time.deltaTime * speed,0,0);
+        transform.Translate(speed * Time.deltaTime * 2,0,0);
         //rb.velocity = new Vector2(speed * Time.fixedDeltaTime, rb.velocity.y);
     }
 
