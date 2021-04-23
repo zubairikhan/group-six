@@ -16,6 +16,7 @@ TagManager:
   - EnemyTop
   - Enemy
   - DmgRock
+  - snack
   layers:
   - Default
   - TransparentFX

@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     public Vector3 checkPoint;
 
     
-    bool canStomp= false;
+    bool canStomp = false;
     bool isStomping;
     bool swipedDown;
 
@@ -212,6 +212,8 @@ public class Player : MonoBehaviour
         //FindObjectOfType<audiomanager>().Play("jump grunt");
         anim.SetBool("jumped", true);
         jump = false;
+        anim.SetBool("isStomping", false);
+
         
         StartCoroutine(ToggleStompPermission());
 
@@ -261,7 +263,12 @@ public class Player : MonoBehaviour
     {
         isStomping = status;
         stompTrigger.SetActive(status);
-        //Debug.Log("isStomping: " + isStomping);
+        Debug.Log("isStomping: " + isStomping);
+
+        if(isStomping){
+            anim.SetBool("isStomping", true);
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -281,6 +288,15 @@ public class Player : MonoBehaviour
         else if (collision.tag == "battery")
         {
             CollectBattery(collision);
+
+        }
+
+        else if (collision.tag == "snack")
+        {
+            CollectSnack(collision);
+            DamageDealer snackHealth = collision.gameObject.GetComponent<DamageDealer>();
+            IncreaseHealth(snackHealth);
+
 
         }
 
@@ -337,6 +353,14 @@ public class Player : MonoBehaviour
 
     }
 
+    private static void CollectSnack(Collider2D collision)
+    {
+        FindObjectOfType<audiomanager>().Play("snackable");
+        Destroy(collision.gameObject);
+
+    }
+
+
     private void TakeDamage(DamageDealer damageDealer)
     {
         playerHealth.UpdateHealth(-damageDealer.GetDamage());
@@ -346,6 +370,17 @@ public class Player : MonoBehaviour
         }
         
         playerBlink= StartCoroutine(PlayerBlink());
+        //Vector2 force = new Vector2(-5f, 10f);
+        //rb.velocity = force;
+
+    }
+
+    private void IncreaseHealth(DamageDealer snackHealth)
+    {
+        playerHealth.UpdateHealth(snackHealth.GetDamage());
+        
+        
+        //playerBlink= StartCoroutine(PlayerBlink());
         //Vector2 force = new Vector2(-5f, 10f);
         //rb.velocity = force;
 
@@ -380,6 +415,7 @@ public class Player : MonoBehaviour
             {
                 ToggleStompMode(false);
                 swipedDown = false;
+                //anim.SetBool("isStomping", false);
             }
         }
     }
@@ -391,6 +427,7 @@ public class Player : MonoBehaviour
     public void SetIsStomping(bool status)
     {
         ToggleStompMode(false);
+        //anim.SetBool("isStomping", true);
     }
 
 }
