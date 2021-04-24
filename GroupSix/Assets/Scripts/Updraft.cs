@@ -20,7 +20,7 @@ public class Updraft : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Vector2 force = new Vector2(0f, upwardVelocity);
-        //playerRb.velocity = new Vector2(playerRb.velocity.x, upwardVelocity);
-        playerRb.AddForce(force);
+        playerRb.velocity = new Vector2(playerRb.velocity.x, upwardVelocity);
+        //playerRb.AddForce(force);
     }
 }

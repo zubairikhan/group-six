@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpSpeed = 1f;
     [SerializeField] float fallMultiplier = 2.5f;
     [SerializeField] float stompingFallMultiplier = 3.5f;
+    [SerializeField] float updraftFallMultiplier = 1.5f;
     [SerializeField] int extraJumpsAllowed;
     [SerializeField] float stompModePermissionDuration;
 
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     [Header("Extra configs")]
     [SerializeField] float playerBlinkingTime= 0.5f;
     [SerializeField] float playerJumpOffEnemyForce = 5f;
+    [SerializeField] float updrafFallVelocity= 2f;
 
     [Header("References")]
     [SerializeField] Rigidbody2D rb;
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour
     bool canStomp = false;
     bool isStomping;
     bool swipedDown;
+    bool inUpdraft;
 
     BatteryController batteryObj;
     ScoreScript scoreObj;
@@ -157,14 +160,20 @@ public class Player : MonoBehaviour
 
     private void QuickFall()
     {
-        if (rb.velocity.y < 0 && !isStomping)
+        if (rb.velocity.y < 0 && !isStomping && !inUpdraft)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y < 0 && inUpdraft)
+        {
+            rb.velocity -= Vector2.up * Physics2D.gravity.y * (updraftFallMultiplier - 1) * Time.deltaTime;
+            //rb.velocity = Vector2.down * updrafFallVelocity;
         }
         else if (rb.velocity.y < 0 && isStomping)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (stompingFallMultiplier - 1) * Time.deltaTime;
         }
+        
     }
 
     void LateUpdate()
@@ -305,12 +314,18 @@ public class Player : MonoBehaviour
             DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
             TakeDamage(damageDealer);
         }
-        /*DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
-        if (damageDealer !=null)
+        if (collision.gameObject.tag == "UpdraftZone")
         {
-            TakeDamage(damageDealer);
+            inUpdraft = true;
         }
-        */
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "UpdraftZone")
+        {
+            inUpdraft = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
