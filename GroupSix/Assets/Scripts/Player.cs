@@ -46,9 +46,10 @@ public class Player : MonoBehaviour
 
     
     bool canStomp = false;
-    bool isStomping ;
+    bool isStomping;
     bool swipedDown;
     bool inUpdraft;
+    bool isDead;
 
     BatteryController batteryObj;
     ScoreScript scoreObj;
@@ -226,6 +227,7 @@ public class Player : MonoBehaviour
 
         
         StartCoroutine(ToggleStompPermission());
+        anim.SetBool("isGrounded", true);
 
 
 
@@ -239,7 +241,7 @@ public class Player : MonoBehaviour
 
         if (Mathf.Abs(dirX) > 0 && rb.velocity.y == 0)
         {
-            FindObjectOfType<audiomanager>().Play("footsteps");
+            //FindObjectOfType<audiomanager>().Play("footsteps");
             anim.SetBool("isRunning", true);
         }
         else
@@ -250,6 +252,7 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        //anim.SetBool("isDead", true);
         Respawn();
     }
 
@@ -257,6 +260,7 @@ public class Player : MonoBehaviour
     {
         transform.position = checkPoint;
         playerHealth.InitializeHealthStatus();
+        //anim.SetBool("isDead", false);
     }
 
     IEnumerator ToggleStompPermission()
