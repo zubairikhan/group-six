@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
 
     
     bool canStomp = false;
-    bool isStomping;
+    bool isStomping ;
     bool swipedDown;
     bool inUpdraft;
 
@@ -115,6 +115,7 @@ public class Player : MonoBehaviour
         //Stomping using keyboard
         if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && canStomp)
         {
+            Debug.Log("hello");
             ToggleStompMode(true);
         }
         
@@ -218,7 +219,7 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         
         extraJumpsLeft--;
-        //FindObjectOfType<audiomanager>().Play("jump grunt");
+        FindObjectOfType<audiomanager>().Play("jump grunt");
         anim.SetBool("jumped", true);
         jump = false;
         anim.SetBool("isStomping", false);
@@ -238,7 +239,7 @@ public class Player : MonoBehaviour
 
         if (Mathf.Abs(dirX) > 0 && rb.velocity.y == 0)
         {
-            
+            FindObjectOfType<audiomanager>().Play("footsteps");
             anim.SetBool("isRunning", true);
         }
         else
