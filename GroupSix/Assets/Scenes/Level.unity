@@ -5741,6 +5741,12 @@ MonoBehaviour:
     volume: 0.172
     pitch: 1
     source: {fileID: 0}
+  - name: enemy kill
+    clip: {fileID: 8300000, guid: 79590c52ad638314bad9b49fd25f826c, type: 3}
+    loop: 0
+    volume: 0.059
+    pitch: 1
+    source: {fileID: 0}
 --- !u!1001 &751673165
 PrefabInstance:
   m_ObjectHideFlags: 0

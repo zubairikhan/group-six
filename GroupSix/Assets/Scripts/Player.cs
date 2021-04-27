@@ -241,26 +241,29 @@ public class Player : MonoBehaviour
 
         if (Mathf.Abs(dirX) > 0 && rb.velocity.y == 0)
         {
-            //FindObjectOfType<audiomanager>().Play("footsteps");
+            
             anim.SetBool("isRunning", true);
+            FindObjectOfType<audiomanager>().Play("footsteps");
         }
         else
         {
+            //FindObjectOfType<audiomanager>().Pause("footsteps");
             anim.SetBool("isRunning", false);
         }
     }
 
     public void Die()
     {
-        //anim.SetBool("isDead", true);
+        anim.SetBool("isDead", true);
         Respawn();
     }
 
     private void Respawn()
     {
+        anim.SetBool("isDead", false);
         transform.position = checkPoint;
         playerHealth.InitializeHealthStatus();
-        //anim.SetBool("isDead", false);
+        
     }
 
     IEnumerator ToggleStompPermission()

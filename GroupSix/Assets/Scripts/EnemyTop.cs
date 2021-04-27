@@ -14,15 +14,13 @@ public class EnemyTop : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             KillEnemy();
-
-
-            
             Instantiate(lootBattery, transform.parent.gameObject.transform.position, Quaternion.identity);
         }
     }
 
     private void KillEnemy()
     {
+        FindObjectOfType<audiomanager>().Play("enemy kill");
         Destroy(transform.parent.gameObject);
     }
 }

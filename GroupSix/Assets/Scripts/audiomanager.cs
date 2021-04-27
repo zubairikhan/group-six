@@ -27,6 +27,14 @@ public class audiomanager : MonoBehaviour
         }
         s.source.Play();
     }
+    // public void Pause(string name){
+    //      Sounds s = Array.Find(sounds,sound => sound.name == name);
+    //     if (s == null)
+    //     {
+    //         return;
+    //     }
+    //     s.source.Stop();
+    // }
 
     public void Start(){
 

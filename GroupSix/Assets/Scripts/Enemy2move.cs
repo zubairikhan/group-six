@@ -6,7 +6,7 @@ public class Enemy2move : MonoBehaviour
 {
     public float speed, range, timeBTWShots, shootSpeed;
     //public bool MoveRight;
-    private float distToPlayer;
+    public float distToPlayer;
     
 
     public Rigidbody2D rb;
@@ -85,7 +85,7 @@ public class Enemy2move : MonoBehaviour
         }
     }
 
-    void Flip(){
+    public void Flip(){
         mustPatrol = false;
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         speed *= -1;
