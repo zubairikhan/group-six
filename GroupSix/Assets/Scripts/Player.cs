@@ -252,6 +252,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void FootStep(){
+        FindObjectOfType<audiomanager>().Play("footsteps");
+    }
+
     public void Die()
     {
         anim.SetBool("isDead", true);

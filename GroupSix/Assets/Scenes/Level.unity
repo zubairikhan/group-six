@@ -5728,8 +5728,8 @@ MonoBehaviour:
     pitch: 2.9
     source: {fileID: 0}
   - name: footsteps
-    clip: {fileID: 8300000, guid: 1c3610e9cafaed547a68730217830f5d, type: 3}
-    loop: 1
+    clip: {fileID: 8300000, guid: 76bbd790b9887fc4fb877cab88305851, type: 3}
+    loop: 0
     volume: 0.602
     pitch: 1
     source: {fileID: 0}
