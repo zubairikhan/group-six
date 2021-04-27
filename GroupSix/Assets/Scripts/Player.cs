@@ -255,12 +255,15 @@ public class Player : MonoBehaviour
     public void Die()
     {
         anim.SetBool("isDead", true);
-        Respawn();
+        //Respawn();
+        Invoke("Respawn" , 1f);
+        //anim.SetBool("isDead", false);
     }
 
     private void Respawn()
     {
         anim.SetBool("isDead", false);
+        anim.SetBool("isGrounded", true);
         transform.position = checkPoint;
         playerHealth.InitializeHealthStatus();
         
