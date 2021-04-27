@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy1move : Enemy2move
+public class enemy1move : MonoBehaviour
 {
-    //public float speed,range;
+    public float speed;
     public bool MoveRight;
-   // private float distToPlayer;
-    //public Transform player;
+  
     
     
 
@@ -24,18 +23,9 @@ public class enemy1move : Enemy2move
             transform.Translate(-2 * Time.deltaTime * speed,0,0,Camera.main.transform);
             transform.localScale = new Vector2(-2,2);
         }
-         distToPlayer = Vector2.Distance(transform.position, player.position);
         
-        if(distToPlayer <= range)
-        {
-            
-            if(player.position.x > transform.position.x && transform.localScale.x < 0
-            ||player.position.x < transform.position.x && transform.localScale.x > 0)
-            {
-                Flip();
-            }
     }
-    }
+    
 
     
 
@@ -51,9 +41,7 @@ public class enemy1move : Enemy2move
         }
     }
 
-    void Flips(){
-        base.Flip();
-    }
+   
 
     
     }

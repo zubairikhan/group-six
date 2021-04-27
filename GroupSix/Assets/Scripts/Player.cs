@@ -243,7 +243,7 @@ public class Player : MonoBehaviour
         {
             
             anim.SetBool("isRunning", true);
-            FindObjectOfType<audiomanager>().Play("footsteps");
+           // FindObjectOfType<audiomanager>().Play("footsteps");
         }
         else
         {

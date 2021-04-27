@@ -2921,6 +2921,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046834600}
     m_Modifications:
+    - target: {fileID: 929317616, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1128487010}
     - target: {fileID: 310162918238042040, guid: 0854810bb02cac54c975c04feb61ca99,
         type: 3}
       propertyPath: m_Name
@@ -5724,7 +5728,7 @@ MonoBehaviour:
     pitch: 2.9
     source: {fileID: 0}
   - name: footsteps
-    clip: {fileID: 8300000, guid: 8d0c016531f89d242a4c891d4d10d7b1, type: 3}
+    clip: {fileID: 8300000, guid: 1c3610e9cafaed547a68730217830f5d, type: 3}
     loop: 1
     volume: 0.602
     pitch: 1
@@ -18027,6 +18031,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046834600}
     m_Modifications:
+    - target: {fileID: 929317616, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1128487010}
     - target: {fileID: 2062126476, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
       propertyPath: lootBattery
       value: 
