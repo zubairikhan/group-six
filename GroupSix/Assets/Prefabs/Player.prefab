@@ -163,6 +163,7 @@ MonoBehaviour:
   jumpSpeed: 8
   fallMultiplier: 2.5
   stompingFallMultiplier: 6
+  updraftFallMultiplier: 2.5
   extraJumpsAllowed: 1
   stompModePermissionDuration: 0.5
   playerBlinkingTime: 0.2

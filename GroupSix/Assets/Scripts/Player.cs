@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     [Header("Extra configs")]
     [SerializeField] float playerBlinkingTime= 0.5f;
     [SerializeField] float playerJumpOffEnemyForce = 5f;
-    [SerializeField] float updrafFallVelocity= 2f;
+    //[SerializeField] float updrafFallVelocity= 2f;
 
     [Header("References")]
     [SerializeField] Rigidbody2D rb;
@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log("vertical velocity: " + rb.velocity.y);
+        //Debug.Log("vertical velocity: " + rb.velocity.y);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsJumpable);
 
         Walk();
