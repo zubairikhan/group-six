@@ -5634,6 +5634,7 @@ MonoBehaviour:
   sounds:
   - name: cell collection
     clip: {fileID: 8300000, guid: 78671e37ef9507e4db4935c01b6565af, type: 3}
+    loop: 0
     volume: 1
     pitch: 2.9
     source: {fileID: 0}
@@ -18119,7 +18120,7 @@ PrefabInstance:
     - target: {fileID: 5032201130314595280, guid: f4851d988b2c2bc4396046908e3f3964,
         type: 3}
       propertyPath: updraftFallMultiplier
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5032201130314595281, guid: f4851d988b2c2bc4396046908e3f3964,
         type: 3}
@@ -18424,6 +18425,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Updraft
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727203783264127630, guid: 356fc09ed17b0ca479c0433213bfba3f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.2762601
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727203783264127630, guid: 356fc09ed17b0ca479c0433213bfba3f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.49359477
       objectReference: {fileID: 0}
     - target: {fileID: 7727203783264127631, guid: 356fc09ed17b0ca479c0433213bfba3f,
         type: 3}

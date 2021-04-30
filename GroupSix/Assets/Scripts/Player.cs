@@ -143,6 +143,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.Log("vertical velocity: " + rb.velocity.y);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsJumpable);
 
         Walk();
