@@ -173,6 +173,8 @@ MonoBehaviour:
   stompTrigger: {fileID: 228582911}
   playerHealth: {fileID: 0}
   spriteRenderer: {fileID: 145847608}
+  switchBoard: {fileID: 0}
+  scoreScript: {fileID: 0}
   groundCheck: {fileID: 5032201130345604857}
   checkRadius: 0.5
   whatIsJumpable:

@@ -18,6 +18,7 @@ TagManager:
   - DmgRock
   - snack
   - UpdraftZone
+  - Switch
   layers:
   - Default
   - TransparentFX

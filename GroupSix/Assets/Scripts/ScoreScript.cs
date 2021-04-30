@@ -8,7 +8,7 @@ public class ScoreScript : MonoBehaviour
 
     Player obj; 
     Text score;
-    public static int scoreValue = 0;
+    private int scoreValue = 0;
 
 
 
@@ -25,6 +25,19 @@ public class ScoreScript : MonoBehaviour
         score.text = "Cells x" + scoreValue;
     }
 
-  
+    public void IncrementCellCount()
+    {
+        scoreValue++;
+    }
+
+    public void DecrementCellCount()
+    {
+        scoreValue--;
+    }
+
+    public int GetCellCount()
+    {
+        return scoreValue;
+    }
 
 }

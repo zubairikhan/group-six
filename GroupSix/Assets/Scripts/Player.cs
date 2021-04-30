@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject stompTrigger;
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Switch switchBoard;
+    [SerializeField] ScoreScript scoreScript;
 
     int extraJumpsLeft;
     bool isWalking = false;
@@ -50,9 +52,10 @@ public class Player : MonoBehaviour
     bool swipedDown;
     bool inUpdraft;
     bool isDead;
+    bool nearToSwitch;
 
     BatteryController batteryObj;
-    ScoreScript scoreObj;
+    //ScoreScript scoreObj;
 
     private Coroutine playerBlink;
 
@@ -119,11 +122,11 @@ public class Player : MonoBehaviour
             Debug.Log("hello");
             ToggleStompMode(true);
         }
-        
-        
+
+
 
         //stomping using mobile
-        
+
         /*if (joystick.Vertical > -0.2f)
         {
             swipedDown = false;
@@ -138,7 +141,24 @@ public class Player : MonoBehaviour
             }
         }
         */
+
+        if (Input.GetKeyDown(KeyCode.G) && nearToSwitch)
+        {
+            if(scoreScript.GetCellCount() > 0)
+            {
+                ActivateSwitch();
+            }
+
+        }
+
+
         
+    }
+
+    private void ActivateSwitch()
+    {
+        scoreScript.DecrementCellCount();
+        switchBoard.Activate();
     }
 
     void FixedUpdate()
@@ -298,7 +318,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if(collision.tag == "Switch")
+        {
+            Debug.Log("triggered switch");
+            nearToSwitch = true;
+            switchBoard = collision.gameObject.GetComponent<Switch>();
+        }
         if(collision.tag == "bottom")
         {
             ResetWhenFall(collision);
@@ -342,6 +367,11 @@ public class Player : MonoBehaviour
         {
             inUpdraft = false;
         }
+        if (collision.tag == "Switch")
+        {
+            nearToSwitch = false;
+            switchBoard = null;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -376,9 +406,9 @@ public class Player : MonoBehaviour
         checkPoint = collision.transform.position;
     }
 
-    private static void CollectBattery(Collider2D collision)
+    private void CollectBattery(Collider2D collision)
     {
-        ScoreScript.scoreValue++;
+        scoreScript.IncrementCellCount();
         FindObjectOfType<audiomanager>().Play("cell collection");
         Destroy(collision.gameObject);
 
