@@ -6,15 +6,15 @@ public class Switch : MonoBehaviour
 {
     [SerializeField] BoxCollider2D boxCollider;
     [SerializeField] Animator animator;
-    [SerializeField] SpriteRenderer light;
+    [SerializeField] SpriteRenderer switchLight;
+    [SerializeField] SpriteRenderer doorLight;
     
 
     public void Activate()
     {
-        light.color = new Color(0, 1, 0, 1);
+        switchLight.color = new Color(0, 1, 0, 1);
+        doorLight.color = new Color(0, 1, 0, 1);
         animator.SetBool("open", true);
-        
-        Debug.Log("Switch activated");
         boxCollider.enabled = false;
     }
 }

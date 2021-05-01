@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5585453758387986910}
   - component: {fileID: 5585453758387986909}
   m_Layer: 0
-  m_Name: Light
+  m_Name: SwitchLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 4}
+  m_Size: {x: 2.5, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &5585453758393845784
 MonoBehaviour:
@@ -158,7 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 5585453758393845787}
   animator: {fileID: 0}
-  light: {fileID: 5585453758387986909}
+  switchLight: {fileID: 5585453758387986909}
+  doorLight: {fileID: 0}
 --- !u!1 &5585453759461809240
 GameObject:
   m_ObjectHideFlags: 0
