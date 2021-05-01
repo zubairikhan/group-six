@@ -324,7 +324,7 @@ public class Player : MonoBehaviour
             nearToSwitch = true;
             switchBoard = collision.gameObject.GetComponent<Switch>();
         }
-        if(collision.tag == "bottom")
+        if (collision.tag == "bottom")
         {
             ResetWhenFall(collision);
         }
@@ -348,6 +348,11 @@ public class Player : MonoBehaviour
             IncreaseHealth(snackHealth);
 
 
+        }
+
+        else if (collision.tag == "spikes")
+        {
+            Die();
         }
 
         if (collision.gameObject.tag == "bullet" || collision.gameObject.tag=="DmgRock")

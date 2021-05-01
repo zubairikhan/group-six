@@ -19,6 +19,7 @@ TagManager:
   - snack
   - UpdraftZone
   - Switch
+  - spikes
   layers:
   - Default
   - TransparentFX
