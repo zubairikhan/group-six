@@ -5751,7 +5751,7 @@ MonoBehaviour:
   - name: footsteps
     clip: {fileID: 8300000, guid: 76bbd790b9887fc4fb877cab88305851, type: 3}
     loop: 0
-    volume: 0.602
+    volume: 0.213
     pitch: 1
     source: {fileID: 0}
   - name: snackable
@@ -5761,7 +5761,7 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
   - name: jump grunt
-    clip: {fileID: 8300000, guid: 6271616b80ab9204bb1cfb967c606de2, type: 3}
+    clip: {fileID: 8300000, guid: 0d9766fff145bac408c87f2b7c8e613c, type: 3}
     loop: 0
     volume: 0.172
     pitch: 1

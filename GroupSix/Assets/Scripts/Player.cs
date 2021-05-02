@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     [SerializeField] Switch switchBoard;
     [SerializeField] ScoreScript scoreScript;
 
+    [SerializeField] audiomanager audioManager;
+
     int extraJumpsLeft;
     bool isWalking = false;
     bool jump = false;
@@ -63,6 +65,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         playerHealth = GetComponent<PlayerHealth>();
+        audioManager = FindObjectOfType<audiomanager>();
         extraJumpsLeft = extraJumpsAllowed;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -241,7 +244,7 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         
         extraJumpsLeft--;
-        FindObjectOfType<audiomanager>().Play("jump grunt");
+        audioManager.Play("jump grunt");
         anim.SetBool("jumped", true);
         jump = false;
         anim.SetBool("isStomping", false);
@@ -274,7 +277,7 @@ public class Player : MonoBehaviour
     }
 
     private void FootStep(){
-        FindObjectOfType<audiomanager>().Play("footsteps");
+        audioManager.Play("footsteps");
     }
 
     public void Die()
@@ -414,14 +417,14 @@ public class Player : MonoBehaviour
     private void CollectBattery(Collider2D collision)
     {
         scoreScript.IncrementCellCount();
-        FindObjectOfType<audiomanager>().Play("cell collection");
+        audioManager.Play("cell collection");
         Destroy(collision.gameObject);
 
     }
 
-    private static void CollectSnack(Collider2D collision)
+    private void CollectSnack(Collider2D collision)
     {
-        FindObjectOfType<audiomanager>().Play("snackable");
+        audioManager.Play("snackable");
         Destroy(collision.gameObject);
 
     }
