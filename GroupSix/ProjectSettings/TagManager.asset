@@ -57,3 +57,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 2435925283
+    locked: 0
+  - name: Jumpable
+    uniqueID: 3350108893
+    locked: 0

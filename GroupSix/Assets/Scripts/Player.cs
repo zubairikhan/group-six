@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField] float updraftFallMultiplier = 1.5f;
     [SerializeField] int extraJumpsAllowed;
     [SerializeField] float stompModePermissionDuration;
+    [SerializeField] ParticleSystem dust;
+   
+
 
 
     [Header("Extra configs")]
@@ -29,7 +32,7 @@ public class Player : MonoBehaviour
     [SerializeField] ScoreScript scoreScript;
 
     [SerializeField] audiomanager audioManager;
-
+    
     int extraJumpsLeft;
     bool isWalking = false;
     bool jump = false;
@@ -39,6 +42,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] float checkRadius;
     [SerializeField] LayerMask whatIsJumpable;
+   
 
     private Animator anim;
     private float dirX;
@@ -58,6 +62,7 @@ public class Player : MonoBehaviour
 
     BatteryController batteryObj;
     //ScoreScript scoreObj;
+    
 
     private Coroutine playerBlink;
 
@@ -122,7 +127,6 @@ public class Player : MonoBehaviour
         //Stomping using keyboard
         if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && canStomp)
         {
-            Debug.Log("hello");
             ToggleStompMode(true);
         }
 
@@ -175,6 +179,7 @@ public class Player : MonoBehaviour
         if (jump)
         {
             Jump();
+            
             
         }
         
@@ -246,12 +251,12 @@ public class Player : MonoBehaviour
         extraJumpsLeft--;
         audioManager.Play("jump grunt");
         anim.SetBool("jumped", true);
-        jump = false;
+        jump = false; 
         anim.SetBool("isStomping", false);
-
-        
+  
         StartCoroutine(ToggleStompPermission());
         anim.SetBool("isGrounded", true);
+        
 
 
 
@@ -265,13 +270,12 @@ public class Player : MonoBehaviour
 
         if (Mathf.Abs(dirX) > 0 && rb.velocity.y == 0)
         {
-            
             anim.SetBool("isRunning", true);
-           // FindObjectOfType<audiomanager>().Play("footsteps");
+         
         }
         else
         {
-            //FindObjectOfType<audiomanager>().Pause("footsteps");
+           
             anim.SetBool("isRunning", false);
         }
     }
@@ -352,6 +356,15 @@ public class Player : MonoBehaviour
 
 
         }
+         else if (collision.tag == "Ground")
+        {
+            CreateDust();
+            
+
+
+        }
+
+
 
         else if (collision.tag == "spikes")
         {
@@ -497,6 +510,9 @@ public class Player : MonoBehaviour
     {
         ToggleStompMode(false);
         //anim.SetBool("isStomping", true);
+    }
+    void CreateDust(){
+        dust.Play();
     }
 
 }
