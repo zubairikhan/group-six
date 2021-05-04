@@ -574,19 +574,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &42107985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42107982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a102ff346ba29a04bbb1bbd739fec366, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dustcloud: {fileID: 532800682}
 --- !u!1 &46481901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,7 +2396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1071688828}
-  parallaxEffect: -0.5
+  parallaxEffect: -0.05
 --- !u!4 &142889278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4265078126166726237, guid: f49a4218713b74c4cbedf627341eee2d,
@@ -3887,7 +3874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1071688828}
-  parallaxEffect: -0.1
+  parallaxEffect: -0.2
 --- !u!4 &294161241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4265078126166726237, guid: f49a4218713b74c4cbedf627341eee2d,
@@ -12536,7 +12523,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: f3ca1545ffc365949ba6fb74e4555c93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19164,7 +19151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1071688828}
-  parallaxEffect: -0.3
+  parallaxEffect: -0.1
 --- !u!1001 &1600949371
 PrefabInstance:
   m_ObjectHideFlags: 0

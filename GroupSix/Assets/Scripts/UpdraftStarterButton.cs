@@ -6,6 +6,7 @@ public class UpdraftStarterButton : MonoBehaviour
 {
     [SerializeField] GameObject updraft;
     [SerializeField] Animator animator;
+   
 
     bool started= false;
     
@@ -18,6 +19,7 @@ public class UpdraftStarterButton : MonoBehaviour
             if (!started)
             {
                 ActivateUpdraft();
+                GetComponent<AudioSource>().Play();
             }
             
         }
