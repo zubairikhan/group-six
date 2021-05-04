@@ -19,7 +19,7 @@ public class UpdraftStarterButton : MonoBehaviour
             if (!started)
             {
                 ActivateUpdraft();
-                GetComponent<AudioSource>().Play();
+                
             }
             
         }
