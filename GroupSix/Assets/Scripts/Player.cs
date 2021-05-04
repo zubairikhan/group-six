@@ -252,10 +252,10 @@ public class Player : MonoBehaviour
         audioManager.Play("jump grunt");
         anim.SetBool("jumped", true);
         jump = false; 
-        anim.SetBool("isStomping", false);
+        //anim.SetBool("isStomping", false);
   
         StartCoroutine(ToggleStompPermission());
-        anim.SetBool("isGrounded", true);
+        //anim.SetBool("isGrounded", true);
         
 
 
@@ -506,6 +506,10 @@ public class Player : MonoBehaviour
     public void StopJumpAnimation()
     {
         anim.SetBool("jumped", false);
+    }
+    public void StopStompAnimation()
+    {
+        anim.SetBool("isStomping", false);
     }
     public void SetIsStomping(bool status)
     {
