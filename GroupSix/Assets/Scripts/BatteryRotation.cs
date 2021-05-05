@@ -28,7 +28,7 @@ public class BatteryRotation : MonoBehaviour
 
         }
 
-        transform.rotation = Quaternion.Euler(0, rotationY, -15);
+        transform.rotation = Quaternion.Euler(0, rotationY, 30);
 
 
     }
