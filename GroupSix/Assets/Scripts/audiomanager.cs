@@ -31,7 +31,7 @@ public class audiomanager : MonoBehaviour
     public void Stop(){
         foreach(Sounds s in sounds)
         {
-            //s.source = gameObject.AddComponent<AudioSource>();
+            s.source = gameObject.GetComponent<AudioSource>();
             s.source.Stop();
         }
     }
