@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 23810227}
   - component: {fileID: 23810226}
   - component: {fileID: 23810225}
+  - component: {fileID: 23810228}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -409,7 +410,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 23810226}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 23810228}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &23810226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +462,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23810223}
   m_CullTransparentMesh: 1
+--- !u!114 &23810228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23810223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5fd78be471b4e148a4bb3c26a781583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &25026457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6621,6 +6646,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 79590c52ad638314bad9b49fd25f826c, type: 3}
     loop: 0
     volume: 0.059
+    pitch: 1
+    source: {fileID: 0}
+  - name: door open
+    clip: {fileID: 8300000, guid: 2269d44a9df2c7c4fbddef8a70b31544, type: 3}
+    loop: 0
+    volume: 0.53
     pitch: 1
     source: {fileID: 0}
 --- !u!1001 &751673165
@@ -17952,17 +17983,17 @@ PrefabInstance:
     - target: {fileID: 381188555975814123, guid: 4dc3686a3c436b64ca3dbff82ab51909,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.036810223
+      value: 0.21231756
       objectReference: {fileID: 0}
     - target: {fileID: 381188555975814123, guid: 4dc3686a3c436b64ca3dbff82ab51909,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.036810223
+      value: 0.21231756
       objectReference: {fileID: 0}
     - target: {fileID: 381188555975814123, guid: 4dc3686a3c436b64ca3dbff82ab51909,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.03773582
+      value: 0.2264151
       objectReference: {fileID: 0}
     - target: {fileID: 381188555975814123, guid: 4dc3686a3c436b64ca3dbff82ab51909,
         type: 3}
