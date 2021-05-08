@@ -6764,6 +6764,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3573110064641107977, guid: 356fc09ed17b0ca479c0433213bfba3f,
         type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxColor.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573110064641107977, guid: 356fc09ed17b0ca479c0433213bfba3f,
+        type: 3}
       propertyPath: TrailModule.colorOverTrail.maxColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -6780,7 +6785,7 @@ PrefabInstance:
     - target: {fileID: 3573110064641107977, guid: 356fc09ed17b0ca479c0433213bfba3f,
         type: 3}
       propertyPath: TrailModule.colorOverLifetime.maxColor.a
-      value: 1
+      value: 0.78431374
       objectReference: {fileID: 0}
     - target: {fileID: 3573110064641107977, guid: 356fc09ed17b0ca479c0433213bfba3f,
         type: 3}
