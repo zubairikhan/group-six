@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
 
     [Header("Extra configs")]
-    [SerializeField] float playerBlinkingTime= 0.5f;
+    [SerializeField] float playerBlinkingTime= 0.01f;
     [SerializeField] float playerJumpOffEnemyForce = 5f;
     //[SerializeField] float updrafFallVelocity= 2f;
 
@@ -65,6 +65,14 @@ public class Player : MonoBehaviour
     
 
     private Coroutine playerBlink;
+
+
+
+    public bool getIsStomping()
+    {
+        return isStomping;
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -333,6 +341,7 @@ public class Player : MonoBehaviour
         }
         if (collision.tag == "bottom")
         {
+            Die();
             ResetWhenFall(collision);
         }
 

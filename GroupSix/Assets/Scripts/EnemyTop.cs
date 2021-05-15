@@ -7,7 +7,8 @@ public class EnemyTop : MonoBehaviour
 
 
     public GameObject lootBattery;
-    BatteryRotation obj; 
+    BatteryRotation obj;
+    Player playerobj = new Player();
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,6 +18,10 @@ public class EnemyTop : MonoBehaviour
             Instantiate(lootBattery, transform.parent.gameObject.transform.position, Quaternion.identity);
         }
     }
+
+
+
+    
 
     private void KillEnemy()
     {
