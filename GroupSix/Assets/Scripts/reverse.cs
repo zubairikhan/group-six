@@ -4,28 +4,16 @@ using UnityEngine;
 
 public class reverse : MonoBehaviour
 {
-    private bool willDeflect = true;
+    private bool willDeflect = false;
     private Rigidbody2D rb = null;
-
-    private void Update()
-    {
-
-
-        if (Input.GetKeyDown(KeyCode.G) && willDeflect == true && rb != null)
-        {
-
-            rb.velocity = -rb.velocity;
-
-        }
-    }
-
-
+    [SerializeField] Player player;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         rb = collision.gameObject.GetComponent<Rigidbody2D>();
         willDeflect = true;
-        
-        
+        player.SetEnemyProjectileRb(rb);
+        player.SetWillDeflect(willDeflect);
     }
 
 
@@ -33,5 +21,7 @@ public class reverse : MonoBehaviour
     {
         willDeflect = false;
         rb = null;
+        player.SetEnemyProjectileRb(rb);
+        player.SetWillDeflect(willDeflect);
     }
 }

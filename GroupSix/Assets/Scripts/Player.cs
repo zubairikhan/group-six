@@ -30,8 +30,8 @@ public class Player : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Switch switchBoard;
     [SerializeField] ScoreScript scoreScript;
-
     [SerializeField] audiomanager audioManager;
+    [SerializeField] reverse reverse;
     
     int extraJumpsLeft;
     bool isWalking = false;
@@ -52,6 +52,11 @@ public class Player : MonoBehaviour
     [Header("Latest checkpoint")]
     public Vector3 checkPoint;
 
+
+    //Enemy Projectile Deflection
+    bool willDeflect= false;
+    Rigidbody2D enemyProjectileRb= null;
+
     
     bool canStomp = false;
     bool isStomping;
@@ -65,6 +70,7 @@ public class Player : MonoBehaviour
     
 
     private Coroutine playerBlink;
+
 
 
 
@@ -165,9 +171,16 @@ public class Player : MonoBehaviour
             }
 
         }
-
-
         
+        if (Input.GetKeyDown(KeyCode.G) && willDeflect && enemyProjectileRb!=null)
+        {
+            
+            enemyProjectileRb.velocity = -enemyProjectileRb.velocity;
+
+        }
+
+
+
     }
 
     private void ActivateSwitch()
@@ -529,4 +542,12 @@ public class Player : MonoBehaviour
         dust.Play();
     }
 
+    public void SetEnemyProjectileRb(Rigidbody2D rb)
+    {
+        enemyProjectileRb = rb;
+    }
+    public void SetWillDeflect(bool status)
+    {
+        willDeflect = status; ;
+    }
 }
