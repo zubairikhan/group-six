@@ -5,14 +5,17 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
 
-    public float dieTime;
+    [SerializeField] private float lifeTime;
+    private int collisionsWithEnemy;
+
     //public GameObject diePEFFECt;
 
 
     void Start()
     {
+        collisionsWithEnemy = 0;
         //StartCoroutine(CountDownTimer());
-        Destroy(gameObject, dieTime);
+        Destroy(gameObject, lifeTime);
     }
 
     /*void OnCollisionEnter2D(Collision2D col)
@@ -25,6 +28,14 @@ public class EnemyBullet : MonoBehaviour
         if (collision.tag == "Player")
         {
             Die();
+        }
+        if (collision.tag == "Enemy")
+        {
+            collisionsWithEnemy++;
+            if (collisionsWithEnemy > 1)
+            {
+                Die();
+            }
         }
         
     }
