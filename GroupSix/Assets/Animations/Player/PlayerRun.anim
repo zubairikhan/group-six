@@ -22,26 +22,32 @@ AnimationClip:
     - time: 0
       value: {fileID: -8238692976190611591, guid: ddb30265b45a6c942b7daa012ce4a8b4,
         type: 3}
-    - time: 0.1
+    - time: 0.10909091
       value: {fileID: -6003534484909991099, guid: ddb30265b45a6c942b7daa012ce4a8b4,
         type: 3}
-    - time: 0.2
+    - time: 0.21818182
       value: {fileID: 7986095315508383860, guid: ddb30265b45a6c942b7daa012ce4a8b4,
         type: 3}
-    - time: 0.28333333
+    - time: 0.3272727
       value: {fileID: -5765028357050024886, guid: ddb30265b45a6c942b7daa012ce4a8b4,
         type: 3}
-    - time: 0.38333333
+    - time: 0.43636364
       value: {fileID: -3355291202008522020, guid: ddb30265b45a6c942b7daa012ce4a8b4,
         type: 3}
-    - time: 0.48333332
+    - time: 0.54545456
       value: {fileID: -1209153654542641210, guid: ddb30265b45a6c942b7daa012ce4a8b4,
+        type: 3}
+    - time: 0.6545454
+      value: {fileID: -5765028357050024886, guid: ddb30265b45a6c942b7daa012ce4a8b4,
+        type: 3}
+    - time: 0.76363635
+      value: {fileID: -8238692976190611591, guid: ddb30265b45a6c942b7daa012ce4a8b4,
         type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 60
+  m_SampleRate: 55
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -62,12 +68,14 @@ AnimationClip:
     - {fileID: -5765028357050024886, guid: ddb30265b45a6c942b7daa012ce4a8b4, type: 3}
     - {fileID: -3355291202008522020, guid: ddb30265b45a6c942b7daa012ce4a8b4, type: 3}
     - {fileID: -1209153654542641210, guid: ddb30265b45a6c942b7daa012ce4a8b4, type: 3}
+    - {fileID: -5765028357050024886, guid: ddb30265b45a6c942b7daa012ce4a8b4, type: 3}
+    - {fileID: -8238692976190611591, guid: ddb30265b45a6c942b7daa012ce4a8b4, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.78181815
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -87,14 +95,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.2
+  - time: 0.21818182
     functionName: FootStep
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.48333332
+  - time: 0.54545456
     functionName: FootStep
     data: 
     objectReferenceParameter: {fileID: 0}
