@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     [SerializeField] ScoreScript scoreScript;
     [SerializeField] audiomanager audioManager;
     [SerializeField] reverse reverse;
+    [SerializeField] CameraShake cameraShake;
     
     int extraJumpsLeft;
     bool isWalking = false;
@@ -42,7 +43,13 @@ public class Player : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] float checkRadius;
     [SerializeField] LayerMask whatIsJumpable;
-   
+
+
+    [Header("Camera shake configs")]
+    [SerializeField] float shakeDuration;
+    [SerializeField] float shakeMagnitude;
+    [SerializeField] bool fadeOut;
+
 
     private Animator anim;
     private float dirX;
@@ -140,6 +147,7 @@ public class Player : MonoBehaviour
         if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && canStomp)
         {
             ToggleStompMode(true);
+            StartCoroutine(cameraShake.ShakeCamera(shakeDuration, shakeMagnitude, true));
             
         }
         
