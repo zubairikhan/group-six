@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Text nameText;
     [SerializeField] private Text dialogueText;
     [SerializeField] Animator animator;
-
+    [SerializeField] float typingSpeed;
 
 
 
@@ -71,7 +71,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return 2; // wait for a single frame
+            yield return new WaitForSeconds(typingSpeed); // wait
         }
 
     }
