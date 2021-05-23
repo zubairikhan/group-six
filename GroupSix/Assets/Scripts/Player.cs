@@ -140,6 +140,7 @@ public class Player : MonoBehaviour
         if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && canStomp)
         {
             ToggleStompMode(true);
+            
         }
         
 

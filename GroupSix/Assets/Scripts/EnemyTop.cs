@@ -8,7 +8,7 @@ public class EnemyTop : MonoBehaviour
 
     public GameObject lootBattery;
     BatteryRotation obj;
-    Player playerobj = new Player();
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

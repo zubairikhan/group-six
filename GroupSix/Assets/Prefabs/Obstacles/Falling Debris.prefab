@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 1453935410138151867}
+  damageDealer: {fileID: 1453935410138151866}
 --- !u!114 &1453935410138151866
 MonoBehaviour:
   m_ObjectHideFlags: 0
