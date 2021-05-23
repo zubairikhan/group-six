@@ -24,7 +24,7 @@ public class CameraShake : MonoBehaviour
 
             if (fadeOut && count > (duration * 0.75f))
             {
-                magnitude -= initialMagnitude * 0.1f;
+                magnitude -= initialMagnitude * 0.3f;
                 magnitude = Mathf.Clamp(magnitude, 0, initialMagnitude);
             }
             count += Time.deltaTime;

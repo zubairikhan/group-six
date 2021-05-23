@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
         if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && canStomp)
         {
             ToggleStompMode(true);
-            StartCoroutine(cameraShake.ShakeCamera(shakeDuration, shakeMagnitude, true));
+            
             
         }
         
@@ -547,6 +547,7 @@ public class Player : MonoBehaviour
             {
                 ToggleStompMode(false);
                 swipedDown = false;
+                StartCoroutine(cameraShake.ShakeCamera(shakeDuration, shakeMagnitude, true));
                 //anim.SetBool("isStomping", false);
             }
         }

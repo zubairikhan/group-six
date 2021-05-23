@@ -21886,6 +21886,11 @@ PrefabInstance:
       objectReference: {fileID: 532800685}
     - target: {fileID: 5032201130314595280, guid: f4851d988b2c2bc4396046908e3f3964,
         type: 3}
+      propertyPath: fadeOut
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032201130314595280, guid: f4851d988b2c2bc4396046908e3f3964,
+        type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 8597403360557502005}
