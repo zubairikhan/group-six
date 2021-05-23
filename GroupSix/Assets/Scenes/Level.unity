@@ -4288,6 +4288,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1453935410138151864, guid: a8eebc771deec2d47b3ea7ee3163b600,
+        type: 3}
+      propertyPath: damageDealer
+      value: 
+      objectReference: {fileID: 1732369371}
     - target: {fileID: 6474782682301206218, guid: a8eebc771deec2d47b3ea7ee3163b600,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -17501,6 +17506,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &1732369371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1453935410138151866, guid: a8eebc771deec2d47b3ea7ee3163b600,
+    type: 3}
+  m_PrefabInstance: {fileID: 357589061}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f38edafeab1c194eb3012802e063cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1738054519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21836,12 +21853,12 @@ PrefabInstance:
     - target: {fileID: 5032201130314595281, guid: f4851d988b2c2bc4396046908e3f3964,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105.6
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 5032201130314595281, guid: f4851d988b2c2bc4396046908e3f3964,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.55
+      value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 5032201130314595281, guid: f4851d988b2c2bc4396046908e3f3964,
         type: 3}

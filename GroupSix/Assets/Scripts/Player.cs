@@ -484,15 +484,17 @@ public class Player : MonoBehaviour
 
     private void TakeDamage(DamageDealer damageDealer)
     {
-        playerHealth.UpdateHealth(-damageDealer.GetDamage());
-        if(playerBlink != null)
-        {
-            StopCoroutine(playerBlink);
-        }
+        if (damageDealer != null) { 
+            playerHealth.UpdateHealth(-damageDealer.GetDamage());
+            if(playerBlink != null)
+            {
+                StopCoroutine(playerBlink);
+            }
         
-        playerBlink= StartCoroutine(PlayerBlink());
-        //Vector2 force = new Vector2(-5f, 10f);
-        //rb.velocity = force;
+            playerBlink= StartCoroutine(PlayerBlink());
+            //Vector2 force = new Vector2(-5f, 10f);
+            //rb.velocity = force;
+        }
 
     }
 
