@@ -109,8 +109,8 @@ public class Player : MonoBehaviour
         //movement with keyboard
         dirX = Input.GetAxisRaw("Horizontal");
 
-        //For joystick control. Do NOT delete
-        /*if (joystick.Horizontal >= 0.5f)
+        //////////////////////////////////////////////////////////////////////For joystick control. Do NOT delete///////////////////////////////////////////////////////////////////////////////
+        if (joystick.Horizontal >= 0.5f)
         {
             dirX = 1;
         }
@@ -122,10 +122,18 @@ public class Player : MonoBehaviour
         {
             dirX = 0f;
         }
-        */
+
+
+
+
+       
         
-        
-        
+
+
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         if (isGrounded == true)
         {
             extraJumpsLeft = extraJumpsAllowed;
@@ -150,13 +158,10 @@ public class Player : MonoBehaviour
             
             
         }
-        
-
-
 
         //stomping using mobile
 
-        /*if (joystick.Vertical > -0.2f)
+        if (joystick.Vertical > -0.2f)
         {
             swipedDown = false;
         }
@@ -169,11 +174,13 @@ public class Player : MonoBehaviour
                 swipedDown = true;
             }
         }
-        */
-        
+
+
+
+
 
         //Action button(switch+deflect) using keyboard
-        
+
         if (Input.GetKeyDown(KeyCode.G) && nearToSwitch)
         {
             if(scoreScript.GetCellCount() > 0)
