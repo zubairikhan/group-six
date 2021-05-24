@@ -26,7 +26,7 @@ public class enemy1move : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); 
     }
 
-    public virtual void Update()
+    void Update()
     {
             Patrol();
     }

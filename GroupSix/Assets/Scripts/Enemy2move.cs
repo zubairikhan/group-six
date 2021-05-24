@@ -32,7 +32,7 @@ public class Enemy2move : enemy1move
         mustPatrol = true;
     }
 
-    public override void Update()
+    void Update()
     {
         if (mustPatrol)
             Patrol();
