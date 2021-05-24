@@ -20,7 +20,7 @@ public class Enemy2move : enemy1move
     // public bool mustPatrol;
     // public bool mustTurn;
      public GameObject bullet;
-     public float shootSpeed, timeBTWShots;
+     public float shootSpeed, timeBTWShots,range;
      public bool canShoot;
      public Transform shootPos;
     
@@ -29,13 +29,26 @@ public class Enemy2move : enemy1move
     {
         base.Start();
         canShoot = true;
+        mustPatrol = true;
     }
 
     public override void Update()
     {
-        base.Update();       
+        if (mustPatrol)
+            Patrol();
+            
+        distToPlayer = Vector2.Distance(transform.position, player.position);      
         if(distToPlayer <= range)
         {
+             if(player.position.x > transform.position.x && transform.localScale.x < 0
+            ||player.position.x < transform.position.x && transform.localScale.x > 0)
+            {
+                Flip();
+            }
+
+           mustPatrol = false;
+         
+           rb.velocity = Vector2.zero;
           
             if(canShoot)
             {
@@ -43,6 +56,8 @@ public class Enemy2move : enemy1move
             }
 
         }
+        else
+            mustPatrol = true;
       
     }
     public override void OnTriggerEnter2D(Collider2D trig){

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemy1move : MonoBehaviour
 {
-     public float speed, range;
+     public float speed;
     //public bool MoveRight;
     public float distToPlayer;
     
@@ -23,38 +23,12 @@ public class enemy1move : MonoBehaviour
 
     public virtual void Start()
     {
-
         rb = GetComponent<Rigidbody2D>(); 
-        mustPatrol = true;
     }
 
     public virtual void Update()
     {
-         if(mustPatrol){
             Patrol();
-         }
-
-        distToPlayer = Vector2.Distance(transform.position, player.position);
-        
-        if(distToPlayer <= range)
-        {
-            
-            if(player.position.x > transform.position.x && transform.localScale.x < 0
-            ||player.position.x < transform.position.x && transform.localScale.x > 0)
-            {
-                Flip();
-            }
-
-           mustPatrol = false;
-         
-        rb.velocity = Vector2.zero;
-
-       
-        }
-          else{
-            mustPatrol = true;
-        }
-      
     }
 
     // private void FixedUpdate()
@@ -65,7 +39,7 @@ public class enemy1move : MonoBehaviour
     //     }
     // }
 
-    void Patrol()
+    public void Patrol()
     {
         // if(mustTurn || bodyCollider.IsTouchingLayers(groundLayer))
         // {
