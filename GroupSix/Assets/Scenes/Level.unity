@@ -8071,11 +8071,6 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 6520036759194574811, guid: 687bfccd2560f8e45bf2b3f6bbfacb07,
-        type: 3}
-      propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6520036759194574821, guid: 687bfccd2560f8e45bf2b3f6bbfacb07,
         type: 3}
       propertyPath: player
@@ -11562,10 +11557,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1128487010}
-    - target: {fileID: 929317618, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
-      propertyPath: m_Mass
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 310162918238042040, guid: 0854810bb02cac54c975c04feb61ca99,
         type: 3}
       propertyPath: m_Name
