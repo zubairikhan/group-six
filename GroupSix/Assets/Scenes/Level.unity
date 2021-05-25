@@ -11830,38 +11830,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1046834600}
     m_Modifications:
-    - target: {fileID: 929317613, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: eaa021254cf36674aaf5bc9f212dabf1, type: 2}
-    - target: {fileID: 929317614, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 929317616, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 2132464660}
-    - target: {fileID: 929317616, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
-      propertyPath: range
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 929317616, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1128487010}
-    - target: {fileID: 929317616, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
-      propertyPath: bodyCollider
-      value: 
-      objectReference: {fileID: 2132464661}
-    - target: {fileID: 929317616, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
-      propertyPath: groundCheckPos
-      value: 
-      objectReference: {fileID: 1524085923}
-    - target: {fileID: 929317616, guid: 0854810bb02cac54c975c04feb61ca99, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 310162918238042040, guid: 0854810bb02cac54c975c04feb61ca99,
         type: 3}
       propertyPath: m_Name
@@ -15896,36 +15868,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64af947d34a97d349a01538110852730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1524085922
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1524085923}
-  m_Layer: 0
-  m_Name: GroundCheckPos (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1524085923
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524085922}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.744162, y: -0.14854687, z: 0}
-  m_LocalScale: {x: 0.9168136, y: 0.9284189, z: 0.9284189}
-  m_Children: []
-  m_Father: {fileID: 2132464657}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1524888384
 GameObject:
   m_ObjectHideFlags: 0
@@ -20989,24 +20931,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 899952111566735657, guid: 25849459a0684d24fac83577e3cf30f8,
     type: 3}
   m_PrefabInstance: {fileID: 575232284}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2132464657 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 929317615, guid: 0854810bb02cac54c975c04feb61ca99,
-    type: 3}
-  m_PrefabInstance: {fileID: 1171300456}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &2132464660 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 929317618, guid: 0854810bb02cac54c975c04feb61ca99,
-    type: 3}
-  m_PrefabInstance: {fileID: 1171300456}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &2132464661 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 929317619, guid: 0854810bb02cac54c975c04feb61ca99,
-    type: 3}
-  m_PrefabInstance: {fileID: 1171300456}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2135970912
 GameObject:

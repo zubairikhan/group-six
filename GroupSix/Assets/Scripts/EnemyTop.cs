@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyTop : MonoBehaviour
 {
-
-
     public GameObject lootBattery;
     BatteryRotation obj;
     
@@ -15,13 +13,12 @@ public class EnemyTop : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             KillEnemy();
-            Instantiate(lootBattery, transform.parent.gameObject.transform.position, Quaternion.identity);
+            if (lootBattery != null) { 
+                Instantiate(lootBattery, transform.parent.gameObject.transform.position, Quaternion.identity);
+            }
         }
+
     }
-
-
-
-    
 
     private void KillEnemy()
     {
