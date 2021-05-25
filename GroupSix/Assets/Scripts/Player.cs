@@ -341,29 +341,25 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        anim.SetBool("isDead", true);
-        //Respawn();
+        //anim.SetBool("isDead", true);
+        
         Invoke("Respawn" , 1f);
-        //anim.SetBool("isDead", false);
+        
     }
 
     private void Respawn()
     {
-        anim.SetBool("isDead", false);
-        anim.SetBool("isGrounded", true);
+        //anim.SetBool("isDead", false);
+        //anim.SetBool("isGrounded", true);
         transform.position = checkPoint;
         playerHealth.InitializeHealthStatus();
-        
     }
 
     IEnumerator ToggleStompPermission()
     {
         canStomp = true;
-        
         yield return new WaitForSeconds(stompModePermissionDuration);
         canStomp = false;
-        
-
     }
 
     private void ToggleStompMode(bool status)
@@ -375,7 +371,6 @@ public class Player : MonoBehaviour
         if(isStomping){
             anim.SetBool("isStomping", true);
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -388,8 +383,8 @@ public class Player : MonoBehaviour
         }
         if (collision.tag == "bottom")
         {
-            Die();
-            ResetWhenFall(collision);
+            //ResetWhenFall();
+            Invoke("ResetWhenFall", 1f);
         }
 
         else if (collision.tag == "Checkpoint")
@@ -412,16 +407,10 @@ public class Player : MonoBehaviour
 
 
         }
-         else if (collision.tag == "Ground")
+        else if (collision.tag == "Ground")
         {
             CreateDust();
-            
-
-
-
         }
-
-
 
         else if (collision.tag == "spikes")
         {
@@ -468,15 +457,6 @@ public class Player : MonoBehaviour
             DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
             TakeDamage(damageDealer);
         }
-        /*DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
-        if (damageDealer != null)
-        {
-            TakeDamage(damageDealer);
-        }
-        */
-
-        
-        
     }
 
     private void UpdateCheckpoint(Collider2D collision)
@@ -541,12 +521,9 @@ public class Player : MonoBehaviour
 
     
 
-    private void ResetWhenFall(Collider2D collision)
+    private void ResetWhenFall()
     {
-        if (collision.tag == "bottom")
-        {
-            transform.position = checkPoint;
-        }
+        transform.position = checkPoint;
     }
     private void StopStomping(Collision2D collision)
     {

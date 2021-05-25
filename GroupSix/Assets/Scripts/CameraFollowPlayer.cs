@@ -8,6 +8,7 @@ public class CameraFollowPlayer : MonoBehaviour
     [SerializeField] Vector3 offset;
     [SerializeField] float lerpingRatio = 0.1f;
     [SerializeField] Vector3 shakeOffset;
+    [SerializeField] float minPosY;
 
     private void Update()
     {
@@ -23,6 +24,7 @@ public class CameraFollowPlayer : MonoBehaviour
     {
         Vector3 newPos = player.position + offset;
         Vector3 pos= Vector3.Lerp(transform.position, newPos, lerpingRatio);
+        pos.y = Mathf.Clamp(pos.y, minPosY, pos.y);
         transform.localPosition = pos;
     }
 }
