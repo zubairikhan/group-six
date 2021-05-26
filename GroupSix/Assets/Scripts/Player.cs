@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 
     private Coroutine playerBlink;
 
-
+    bool canControl;
 
 
     public bool getIsStomping()
@@ -97,6 +97,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         localScale = transform.localScale;
         checkPoint = transform.position;
+        canControl = true;
         
 
     }
@@ -104,26 +105,26 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
 
-        //movement with keyboard
-        dirX = Input.GetAxisRaw("Horizontal");
+        if (canControl) { 
+            //movement with keyboard
+            dirX = Input.GetAxisRaw("Horizontal");
 
-        //////////////////////////////////////////////////////////////////////For joystick control. Do NOT delete///////////////////////////////////////////////////////////////////////////////
-        /*
-        if (joystick.Horizontal >= 0.5f)
-        {
-            dirX = 1;
-        }
-        else if (joystick.Horizontal <= -0.5f)
-        {
-            dirX = -1;
-        }
-        else
-        {
-            dirX = 0f;
-        }
-        */
+            //////////////////////////////////////////////////////////////////////For joystick control. Do NOT delete///////////////////////////////////////////////////////////////////////////////
+            /*
+            if (joystick.Horizontal >= 0.5f)
+            {
+                dirX = 1;
+            }
+            else if (joystick.Horizontal <= -0.5f)
+            {
+                dirX = -1;
+            }
+            else
+            {
+                dirX = 0f;
+            }
+            */
 
 
 
@@ -134,71 +135,71 @@ public class Player : MonoBehaviour
 
 
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        if (isGrounded == true)
-        {
-            extraJumpsLeft = extraJumpsAllowed;
+            if (isGrounded == true)
+            {
+                extraJumpsLeft = extraJumpsAllowed;
             
-        }
+            }
 
 
-        //jump using keyboard
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumpsLeft > 0)
-        {
-            jump = true;
-        }
-        else if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumpsLeft <= 0 && isGrounded)
-        {
-            jump = true;
-        }
+            //jump using keyboard
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumpsLeft > 0)
+            {
+                jump = true;
+            }
+            else if((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumpsLeft <= 0 && isGrounded)
+            {
+                jump = true;
+            }
 
-        //Stomping using keyboard
-        if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && canStomp)
-        {
-            ToggleStompMode(true);
-        }
-        
-
-        //stomping using mobile
-        /*
-        if (joystick.Vertical > -0.2f)
-        {
-            swipedDown = false;
-        }
-
-        if (joystick.Vertical <= -0.7f && canStomp)
-        {
-            if (!swipedDown)
+            //Stomping using keyboard
+            if((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && canStomp)
             {
                 ToggleStompMode(true);
-                swipedDown = true;
             }
-        }
-        */
         
 
-
-
-
-        //Action button(switch+deflect) using keyboard
-
-        if (Input.GetKeyDown(KeyCode.G) && nearToSwitch)
-        {
-            if(scoreScript.GetCellCount() > 0)
+            //stomping using mobile
+            /*
+            if (joystick.Vertical > -0.2f)
             {
-                ActivateSwitch();
+                swipedDown = false;
             }
-        }
-        
-        if (Input.GetKeyDown(KeyCode.G) && willDeflect && enemyProjectileRb!=null)
-        {
-            enemyProjectileRb.velocity = -enemyProjectileRb.velocity;
-        }
-        
+
+            if (joystick.Vertical <= -0.7f && canStomp)
+            {
+                if (!swipedDown)
+                {
+                    ToggleStompMode(true);
+                    swipedDown = true;
+                }
+            }
+            */
         
 
 
+
+
+            //Action button(switch+deflect) using keyboard
+
+            if (Input.GetKeyDown(KeyCode.G) && nearToSwitch)
+            {
+                if(scoreScript.GetCellCount() > 0)
+                {
+                    ActivateSwitch();
+                }
+            }
+        
+            if (Input.GetKeyDown(KeyCode.G) && willDeflect && enemyProjectileRb!=null)
+            {
+                enemyProjectileRb.velocity = -enemyProjectileRb.velocity;
+            }
+
+
+
+        }
 
     }
     public void Action()
@@ -380,6 +381,9 @@ public class Player : MonoBehaviour
         if (collision.tag == "bottom")
         {
             //ResetWhenFall();
+            canControl = false;
+            //rb.velocity = new Vector2(0, rb.velocity.y);
+            dirX = 0;
             Invoke("ResetWhenFall", 1f);
         }
 
@@ -519,6 +523,7 @@ public class Player : MonoBehaviour
 
     private void ResetWhenFall()
     {
+        canControl = true;
         transform.position = checkPoint;
     }
     private void StopStomping(Collision2D collision)
