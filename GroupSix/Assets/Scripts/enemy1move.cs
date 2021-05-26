@@ -19,11 +19,13 @@ public class enemy1move : MonoBehaviour
     //[HideInInspector]
     public bool mustPatrol;
     public bool mustTurn;
-    
+
+    audiomanager audiomanager;
 
     public virtual void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody2D>();
+        audiomanager = FindObjectOfType<audiomanager>();
     }
 
     void Update()
@@ -50,19 +52,24 @@ public class enemy1move : MonoBehaviour
     }
 
     public virtual void OnTriggerEnter2D(Collider2D trig){
-        if(trig.gameObject.CompareTag("turn")){
-         Flip();   
+        if(trig.tag=="turn"){
+            Flip();   
         }
+        
     }
-      public void Flip(){
+    public void Flip(){
         mustPatrol = false;
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         speed *= -1;
         mustPatrol = true;
     }
 
-   
-
-    
+    public void KillEnemy()
+    {
+        audiomanager.Play("enemy kill");
+        Destroy(gameObject);
     }
+
+
+}
 

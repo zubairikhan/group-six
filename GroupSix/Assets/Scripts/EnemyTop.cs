@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemyTop : MonoBehaviour
 {
-    public GameObject lootBattery;
-    BatteryRotation obj;
+    [SerializeField] GameObject lootBattery;
     
+    [SerializeField] enemy1move enemy;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            KillEnemy();
+            enemy.KillEnemy();
             if (lootBattery != null) { 
                 Instantiate(lootBattery, transform.parent.gameObject.transform.position, Quaternion.identity);
             }
@@ -20,9 +20,5 @@ public class EnemyTop : MonoBehaviour
 
     }
 
-    private void KillEnemy()
-    {
-        FindObjectOfType<audiomanager>().Play("enemy kill");
-        Destroy(transform.parent.gameObject);
-    }
+    
 }

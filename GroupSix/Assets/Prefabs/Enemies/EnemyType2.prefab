@@ -61,6 +61,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7325701539931337952}
     m_Modifications:
+    - target: {fileID: 421788394, guid: 8eb209eb8b02c01459701d1100cfdf7f, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 6520036759194574821}
+    - target: {fileID: 421788394, guid: 8eb209eb8b02c01459701d1100cfdf7f, type: 3}
+      propertyPath: lootBattery
+      value: 
+      objectReference: {fileID: 8437442785011230267, guid: 7d76936f87259044bbc2faa2d6a87b0f,
+        type: 3}
     - target: {fileID: 421788395, guid: 8eb209eb8b02c01459701d1100cfdf7f, type: 3}
       propertyPath: m_Size.x
       value: 0.6280731
@@ -200,6 +209,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4160937289933492465}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6520036759194574821 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7189236527726169876, guid: 8eb209eb8b02c01459701d1100cfdf7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4160937289933492465}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e7b14d2debba0449aa869f28a7534e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4160937290048891417 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 421788392, guid: 8eb209eb8b02c01459701d1100cfdf7f,

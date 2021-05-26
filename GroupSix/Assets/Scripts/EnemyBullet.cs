@@ -34,6 +34,7 @@ public class EnemyBullet : MonoBehaviour
             collisionsWithEnemy++;
             if (collisionsWithEnemy > 1)
             {
+                collision.gameObject.GetComponent<Enemy2move>().KillEnemy();
                 Die();
             }
         }

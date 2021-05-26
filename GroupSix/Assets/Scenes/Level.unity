@@ -7994,21 +7994,15 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4160937290048891419, guid: 687bfccd2560f8e45bf2b3f6bbfacb07,
-        type: 3}
-      propertyPath: lootBattery
-      value: 
-      objectReference: {fileID: 8437442785011230267, guid: 7d76936f87259044bbc2faa2d6a87b0f,
-        type: 3}
     - target: {fileID: 4759088578076140850, guid: 687bfccd2560f8e45bf2b3f6bbfacb07,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: 5823525323236300387, guid: 687bfccd2560f8e45bf2b3f6bbfacb07,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.93
+      value: -2.96
       objectReference: {fileID: 0}
     - target: {fileID: 5920693122801238020, guid: 687bfccd2560f8e45bf2b3f6bbfacb07,
         type: 3}
@@ -8033,12 +8027,12 @@ PrefabInstance:
     - target: {fileID: 7325701539931337952, guid: 687bfccd2560f8e45bf2b3f6bbfacb07,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 115.61833
+      value: 82.62
       objectReference: {fileID: 0}
     - target: {fileID: 7325701539931337952, guid: 687bfccd2560f8e45bf2b3f6bbfacb07,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.69
+      value: -4.54
       objectReference: {fileID: 0}
     - target: {fileID: 7325701539931337952, guid: 687bfccd2560f8e45bf2b3f6bbfacb07,
         type: 3}
@@ -11519,7 +11513,7 @@ PrefabInstance:
     - target: {fileID: 310162918238042041, guid: 0854810bb02cac54c975c04feb61ca99,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 77.91
+      value: 73.36
       objectReference: {fileID: 0}
     - target: {fileID: 310162918238042041, guid: 0854810bb02cac54c975c04feb61ca99,
         type: 3}

@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootBattery: {fileID: 0}
+  enemy: {fileID: 929317616}
 --- !u!50 &2062126475
 Rigidbody2D:
   serializedVersion: 4
