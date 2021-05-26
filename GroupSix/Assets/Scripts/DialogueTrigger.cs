@@ -5,8 +5,19 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
 
+    [SerializeField] Dialogue dialogue;
 
-    [SerializeField] Dialogue dialogue; 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+
+        if (collision.tag == "Player")
+        {
+            TriggerDialogue();
+        }
+    }
+
+
 
     public void TriggerDialogue()
     {
@@ -14,6 +25,5 @@ public class DialogueTrigger : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 
     }
-
 
 }
