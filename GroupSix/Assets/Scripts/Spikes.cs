@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Spikes : MonoBehaviour
 {
     [SerializeField] Player player;
-
 
 
 
@@ -14,6 +12,7 @@ public class Spikes : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+
             Die();
         }
     }
@@ -23,12 +22,17 @@ public class Spikes : MonoBehaviour
 
     public void Die()
     {
-        player.transform.position = player.checkPoint;
-        player.playerHealth.InitializeHealthStatus();
+        Respawn();
+        
+
 
     }
 
-    
+    private void Respawn()
+    {
+        player.transform.position = player.checkPoint;
+        player.playerHealth.InitializeHealthStatus();
+    }
 
 
 }

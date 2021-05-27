@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField] float playerBlinkingTime= 0.01f;
     [SerializeField] float playerJumpOffEnemyForce = 5f;
     //[SerializeField] float updrafFallVelocity= 2f;
+    [SerializeField] Animator fadeAnimator; 
 
     [Header("References")]
     [SerializeField] Rigidbody2D rb;
