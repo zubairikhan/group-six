@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Joystick joystick;
     [SerializeField] GameObject stompTrigger;
-    [SerializeField] PlayerHealth playerHealth;
+    [SerializeField] public PlayerHealth playerHealth;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Switch switchBoard;
     [SerializeField] ScoreScript scoreScript;

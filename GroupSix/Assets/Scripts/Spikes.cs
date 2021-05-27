@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
-    private Player player;
+    [SerializeField] Player player;
 
 
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
-
-    }
 
 
 
@@ -20,8 +14,21 @@ public class Spikes : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            player.Die();
+            Die();
         }
     }
+
+
+
+
+    public void Die()
+    {
+        player.transform.position = player.checkPoint;
+        player.playerHealth.InitializeHealthStatus();
+
+    }
+
+    
+
 
 }
