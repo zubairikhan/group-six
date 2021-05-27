@@ -25,12 +25,15 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
 
 
-    private float GetHealth()
+    public float GetHealth()
     {
         return currentHealth;
     }
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
 
-    
 
     public void UpdateHealth(float healthPoints)
     {

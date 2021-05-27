@@ -5,13 +5,14 @@ using UnityEngine;
 public class BreakablePlatform : MonoBehaviour
 {
     [SerializeField] List<Rigidbody2D> childrenRbs;
-    
+    bool broken= false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Stomper")
         {
             Break();
+            broken = true;
             Destroy(GetComponent<BoxCollider2D>());
         }
     }
@@ -30,5 +31,10 @@ public class BreakablePlatform : MonoBehaviour
             rock.isKinematic = false;
             
         }
+    }
+
+    public bool isBroken()
+    {
+        return broken;
     }
 }
