@@ -72,3 +72,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences: []
+  dialogueTrigger: {fileID: 8939914569738552199}

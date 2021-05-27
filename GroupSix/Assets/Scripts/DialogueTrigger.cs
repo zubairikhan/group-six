@@ -6,6 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
 
     [SerializeField] Dialogue dialogue;
+    [SerializeField] GameObject dialogueTrigger;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,6 +15,7 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.tag == "Player")
         {
             TriggerDialogue();
+            dialogueTrigger.SetActive(false);
         }
     }
 
