@@ -8,10 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level.unity
     guid: 8b9a0ef275c67c74e8e06dcdbbf3425e
   - enabled: 0
-    path: Assets/Scenes/Zubair.unity
-    guid: 7cb891c8c8a19aa40959c750f7dd9943
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Level Design.unity
+    guid: 505f011da1df85b41af3ce99aac0905b
+  - enabled: 1
+    path: Assets/Scenes/Level Design 3.unity
+    guid: 2e7c253065284094e968344262f8ecd7
+  - enabled: 1
+    path: Assets/Scenes/Level Design 2.unity
+    guid: 2e1db796283deeb41a094a085f58c543
   m_configObjects: {}
