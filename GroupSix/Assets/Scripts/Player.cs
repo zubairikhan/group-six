@@ -109,10 +109,10 @@ public class Player : MonoBehaviour
 
         if (canControl) { 
             //movement with keyboard
-            dirX = Input.GetAxisRaw("Horizontal");
+            //dirX = Input.GetAxisRaw("Horizontal");
 
             //////////////////////////////////////////////////////////////////////For joystick control. Do NOT delete///////////////////////////////////////////////////////////////////////////////
-            /*
+            
             if (joystick.Horizontal >= 0.5f)
             {
                 dirX = 1;
@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
             {
                 dirX = 0f;
             }
-            */
+            
 
 
 
@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
 
 
             //jump using keyboard
-            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumpsLeft > 0)
+            /*if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && extraJumpsLeft > 0)
             {
                 jump = true;
             }
@@ -160,10 +160,11 @@ public class Player : MonoBehaviour
             {
                 ToggleStompMode(true);
             }
+            */
         
 
             //stomping using mobile
-            /*
+            
             if (joystick.Vertical > -0.2f)
             {
                 swipedDown = false;
@@ -177,7 +178,7 @@ public class Player : MonoBehaviour
                     swipedDown = true;
                 }
             }
-            */
+            
         
 
 
@@ -185,7 +186,7 @@ public class Player : MonoBehaviour
 
             //Action button(switch+deflect) using keyboard
 
-            if (Input.GetKeyDown(KeyCode.G) && nearToSwitch)
+            /*if (Input.GetKeyDown(KeyCode.G) && nearToSwitch)
             {
                 if(scoreScript.GetCellCount() > 0)
                 {
@@ -197,6 +198,7 @@ public class Player : MonoBehaviour
             {
                 enemyProjectileRb.velocity = -enemyProjectileRb.velocity;
             }
+            */
 
 
 
@@ -233,10 +235,11 @@ public class Player : MonoBehaviour
         Walk();
 
         //jump using keyboard
-        if (jump)
+        /*if (jump)
         {
             Jump();
         }
+        */
         
         
         QuickFall();
@@ -287,24 +290,24 @@ public class Player : MonoBehaviour
     {
         
         //Jump for mobile input
-        /*if(extraJumpsLeft > 0 || extraJumpsLeft <=0 && isGrounded)
+        if(extraJumpsLeft > 0 || extraJumpsLeft <=0 && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             extraJumpsLeft--;
             anim.SetBool("jumped", true);
             //jump = false;
         }
-        */
+        
         
         
         //jump using keyboard
-        rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        /*rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         extraJumpsLeft--;
         audioManager.Play("jump grunt");
         anim.SetBool("jumped", true);
         jump = false; 
         //anim.SetBool("isStomping", false);
-        
+        */
 
 
         StartCoroutine(ToggleStompPermission());
