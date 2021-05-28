@@ -19,17 +19,20 @@ public class Enemy2move : enemy1move
     // //[HideInInspector]
     // public bool mustPatrol;
     // public bool mustTurn;
-     public GameObject bullet;
-     public float shootSpeed, timeBTWShots,range;
-     public bool canShoot;
-     public Transform shootPos;
-    
+    public GameObject bullet;
+    public float shootSpeed, timeBTWShots,range;
+    public bool canShoot;
+    public Transform shootPos;
+    [SerializeField] private Transform player;
+    float distToPlayer;
+
 
     public override void Start()
     {
         base.Start();
         canShoot = true;
         mustPatrol = true;
+        
     }
 
     void Update()

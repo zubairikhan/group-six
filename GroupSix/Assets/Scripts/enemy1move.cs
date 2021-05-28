@@ -6,14 +6,14 @@ public class enemy1move : MonoBehaviour
 {
      public float speed;
     //public bool MoveRight;
-    public float distToPlayer;
+    
     
 
     public Rigidbody2D rb;
     public Transform groundCheckPos;
     public LayerMask groundLayer;
     public Collider2D bodyCollider;
-    public Transform player;
+    
    
 
     //[HideInInspector]
