@@ -32,9 +32,14 @@ public class EnemyBullet : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             collisionsWithEnemy++;
+            Debug.Log("Collided with enemy: " + collisionsWithEnemy);
             if (collisionsWithEnemy > 1)
             {
-                collision.gameObject.GetComponent<Enemy2move>().KillEnemy();
+
+                Enemy2move enem = collision.gameObject.GetComponent<Enemy2move>();
+                if (enem != null) { 
+                    enem.KillEnemy();
+                }
                 Die();
             }
         }

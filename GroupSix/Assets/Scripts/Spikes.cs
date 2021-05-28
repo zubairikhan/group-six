@@ -12,27 +12,11 @@ public class Spikes : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-
-            Die();
+            player.Die();
+            
         }
     }
 
-
-
-
-    public void Die()
-    {
-        Respawn();
-        
-
-
-    }
-
-    private void Respawn()
-    {
-        player.transform.position = player.checkPoint;
-        player.playerHealth.InitializeHealthStatus();
-    }
 
 
 }
