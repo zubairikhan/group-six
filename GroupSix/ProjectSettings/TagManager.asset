@@ -21,6 +21,7 @@ TagManager:
   - Switch
   - spikes
   - MoveableBlock
+  - movable
   layers:
   - Default
   - TransparentFX
