@@ -159,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5032201130314595310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 5032201130345604857}
@@ -229,6 +229,7 @@ MonoBehaviour:
   dust: {fileID: 0}
   playerBlinkingTime: 0.2
   playerJumpOffEnemyForce: 9
+  fadeAnimator: {fileID: 0}
   rb: {fileID: 5032201130314595309}
   joystick: {fileID: 0}
   stompTrigger: {fileID: 228582911}
@@ -237,11 +238,16 @@ MonoBehaviour:
   switchBoard: {fileID: 0}
   scoreScript: {fileID: 0}
   audioManager: {fileID: 0}
+  reverse: {fileID: 0}
+  cameraShake: {fileID: 0}
   groundCheck: {fileID: 5032201130345604857}
   checkRadius: 0.5
   whatIsJumpable:
     serializedVersion: 2
     m_Bits: 64
+  shakeDuration: 0
+  shakeMagnitude: 0
+  fadeOut: 0
   checkPoint: {x: 0, y: 0, z: 0}
 --- !u!212 &145847608
 SpriteRenderer:
