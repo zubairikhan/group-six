@@ -33,22 +33,10 @@ public class enemy1move : MonoBehaviour
             Patrol();
     }
 
-    // private void FixedUpdate()
-    // {
-    //     if(mustPatrol)
-    //     {
-    //         mustTurn = !Physics2D.OverlapCircle(groundCheckPos.position, 0.1f, groundLayer);
-    //     }
-    // }
 
     public void Patrol()
     {
-        // if(mustTurn || bodyCollider.IsTouchingLayers(groundLayer))
-        // {
-        //     Flip();
-        // }
         transform.Translate(speed * Time.deltaTime * 2,0,0);
-        //rb.velocity = new Vector2(speed * Time.fixedDeltaTime, rb.velocity.y);
     }
 
     public virtual void OnTriggerEnter2D(Collider2D trig){
