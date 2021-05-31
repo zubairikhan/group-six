@@ -365,6 +365,10 @@ public class Player : MonoBehaviour
 
     private void ToggleStompMode(bool status)
     {
+        if (status== false)
+        {
+            StartCoroutine(cameraShake.ShakeCamera(shakeDuration, shakeMagnitude, true));
+        }
         isStomping = status;
         stompTrigger.SetActive(status);
         Debug.Log("isStomping: " + isStomping);
@@ -538,7 +542,7 @@ public class Player : MonoBehaviour
             {
                 ToggleStompMode(false);
                 swipedDown = false;
-                StartCoroutine(cameraShake.ShakeCamera(shakeDuration, shakeMagnitude, true));
+                //StartCoroutine(cameraShake.ShakeCamera(shakeDuration, shakeMagnitude, true));
                 //anim.SetBool("isStomping", false);
             }
         }
@@ -554,7 +558,7 @@ public class Player : MonoBehaviour
     }
     public void SetIsStomping(bool status)
     {
-        ToggleStompMode(false);
+        ToggleStompMode(status);
         //anim.SetBool("isStomping", true);
     }
     void CreateDust(){
