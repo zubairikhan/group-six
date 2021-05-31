@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4307575414535476854}
   - component: {fileID: 4307575414535476855}
+  - component: {fileID: 8294204629993713468}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -127,3 +128,58 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8294204629993713468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4307575414535476848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc0616c4b7616c4a9b7a48a802dbb00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: cell collection
+    clip: {fileID: 8300000, guid: 78671e37ef9507e4db4935c01b6565af, type: 3}
+    loop: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: projectile shoot
+    clip: {fileID: 8300000, guid: 3899042dd8e50984b8d7da5a131d705b, type: 3}
+    loop: 0
+    volume: 0.602
+    pitch: 2.9
+    source: {fileID: 0}
+  - name: footsteps
+    clip: {fileID: 8300000, guid: 571fb00ad34cd6545a8c2a6a56cc75c5, type: 3}
+    loop: 0
+    volume: 0.09
+    pitch: 2.2
+    source: {fileID: 0}
+  - name: snackable
+    clip: {fileID: 8300000, guid: b5fbf92949e841d4c9b5351e597b4634, type: 3}
+    loop: 0
+    volume: 0.602
+    pitch: 1
+    source: {fileID: 0}
+  - name: jump grunt
+    clip: {fileID: 8300000, guid: 0d9766fff145bac408c87f2b7c8e613c, type: 3}
+    loop: 0
+    volume: 0.172
+    pitch: 1
+    source: {fileID: 0}
+  - name: enemy kill
+    clip: {fileID: 8300000, guid: 79590c52ad638314bad9b49fd25f826c, type: 3}
+    loop: 0
+    volume: 0.059
+    pitch: 1
+    source: {fileID: 0}
+  - name: door open
+    clip: {fileID: 8300000, guid: 2269d44a9df2c7c4fbddef8a70b31544, type: 3}
+    loop: 0
+    volume: 0.53
+    pitch: 1
+    source: {fileID: 0}
